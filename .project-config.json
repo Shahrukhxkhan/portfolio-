@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663487453183/8U54GFd4XFPYkVNrPwitvg",
+    "access_key_id": "ASIAZV3A2ECZLTKIY7ZE",
+    "secret_access_key": "5m+4mHL22J3FHPYbbjULo8/IAj1w8/Mj1AMXMLqG",
+    "session_token": "IQoJb3JpZ2luX2VjELL//////////wEaCXVzLWVhc3QtMSJHMEUCIQCeXXPNZtm3BLEHnjQpMvjFy5/KQntGwDLa2PQDThxoAwIgf2uqAF6f5KXqQV+lJrRmN9FWLnc9jsg5TiO9LVl18zMq9gMIehAEGgw2NjUzODYwOTg4NjYiDAUWmwl61Qhoc5FEeSrTA9z4RxM4d3Jml1pHOz6NOSYruVpRaajUigEWAJ21mMRVQmmRQ9UHqMW2G0IRn8DIWtzrAE+2ww0cWM7JyimioDDq3Qzcl6LlNVvwkh51M3w7TMrvDtX9U9TRtZCBL01+XQ+ToD4JxrMiWQBu2dAYNeyTM5zG4C4pZw34OTupPLixTJIGtgMheTpjyzUYSrSLUeRx72GpKkwR7UM3BBpM4i8nXUEfZbItCUcDtWFGynNnvVtruHo9OdKgsa2gsbtZLINMaxZpRiLOTOWD0bf8vH08p2fDR5X98iZFegLLQnHheaAl8F9P/lInRnckPE6FihTVnMsCBex/9/bNtkrBbFCG8ZQ/eLHR/2em5nEFsErbFkw2lI4I0Z0XdEeQP2S9BdL+4yYeQ+XKX+DVJNYl1lF4xh4iar2Zw8yQAIOjWN+oPY4jjDt7NV4YrSbspkMXO8/6gWlRxswN/OSKZYibxYWadhf/Tk8Q7RqbSjaNDpQqBKEDBeSsQyRenB0UndDWD4Se2WpkycJNvBA0SngqMgeYyEaElbLW7jmJkJ0bVdVpvobGHOlf1mqbn1pu+fgD7ttB9N/QxTAYrxwA6lEV+BrIIj6STPE7PPGHZesVhxvXxTQSMKmlndAGOp0BFHXWsp6DjrpaGfhqjSTK+wJLaALdrS0FlLUXy0yng19M5wAD4evZf2xX0uJBzYezu/jrL5hgOa4f/d7kt2rQZ5hduZ+QvOrn1MLXjWCDluV1TawUSh8hcx2ALYlPHdGeVw9XO1sbb7pnjwbn8Al11/AHYTN7AmCIUDOHEOi8Ly5YiOLlJ2U/xTvpIiT0cNTKDLNLewfW2FkxIK2i7A==",
+    "expiration": "2026-05-16T05:06:49.000Z"
+  },
+  "name": "portfolio",
+  "path": "/home/ubuntu/portfolio",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "SQvwdsM7yHWxMXEwAMwV3w",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "MSDWHsVhYVWvaVpVFMsQpE",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "shahrukh khan",
+    "OWNER_OPEN_ID": "9QgqKz8Mqksyft6Vmri6ys",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "599f5316-3f05-4ce1-97d2-bc66d6a3b889",
+    "VITE_APP_ID": "8U54GFd4XFPYkVNrPwitvg",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Muhammad Shahrukh Khan - 3D Portfolio",
+    "VITE_FRONTEND_FORGE_API_KEY": "ZTohxNDoWMhuBQ4PF7quNs",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
