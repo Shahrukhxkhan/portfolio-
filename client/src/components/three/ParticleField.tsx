@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
 interface ParticleFieldProps {
@@ -23,6 +22,7 @@ function ParticleSystem({ count = 150 }: ParticleFieldProps) {
   const { camera, size } = useThree();
   const mouseRef = useRef({ x: 0, y: 0 });
   const scrollRef = useRef(0);
+  const [positions, setPositions] = useState<Float32Array | null>(null);
 
   // Initialize particles
   useEffect(() => {
@@ -39,6 +39,16 @@ function ParticleSystem({ count = 150 }: ParticleFieldProps) {
       });
     }
     particlesRef.current = particles;
+
+    // Initialize positions array
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const p = particles[i];
+      pos[i * 3] = p.x;
+      pos[i * 3 + 1] = p.y;
+      pos[i * 3 + 2] = p.z;
+    }
+    setPositions(pos);
   }, [count]);
 
   // Mouse tracking
@@ -65,9 +75,9 @@ function ParticleSystem({ count = 150 }: ParticleFieldProps) {
 
   // Animation loop
   useFrame(() => {
-    if (!pointsRef.current) return;
+    if (!pointsRef.current || !positions) return;
 
-    const positions = pointsRef.current.geometry.attributes.position.array as Float32Array;
+    const pos = positions;
     const particles = particlesRef.current;
 
     for (let i = 0; i < particles.length; i++) {
@@ -104,25 +114,20 @@ function ParticleSystem({ count = 150 }: ParticleFieldProps) {
       if (p.z > 20) p.z = -20;
       if (p.z < -20) p.z = 20;
 
-      positions[i * 3] = p.x;
-      positions[i * 3 + 1] = p.y;
-      positions[i * 3 + 2] = p.z;
+      pos[i * 3] = p.x;
+      pos[i * 3 + 1] = p.y;
+      pos[i * 3 + 2] = p.z;
     }
 
     pointsRef.current.geometry.attributes.position.needsUpdate = true;
   });
 
-  // Generate positions
-  const positions = new Float32Array(count * 3);
-  for (let i = 0; i < count; i++) {
-    const p = particlesRef.current[i];
-    positions[i * 3] = p.x;
-    positions[i * 3 + 1] = p.y;
-    positions[i * 3 + 2] = p.z;
+  if (!positions) {
+    return null;
   }
 
   return (
-    <Points ref={pointsRef}>
+    <points ref={pointsRef}>
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
@@ -131,14 +136,14 @@ function ParticleSystem({ count = 150 }: ParticleFieldProps) {
           itemSize={3}
         />
       </bufferGeometry>
-      <PointMaterial
+      <pointsMaterial
         size={0.15}
         color="#4A9EDB"
         sizeAttenuation
         transparent
         opacity={0.6}
       />
-    </Points>
+    </points>
   );
 }
 
