@@ -1,96 +1,131 @@
-import { useRef, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Icosahedron, Wireframe } from "@react-three/drei";
+import { useRef, useEffect, useMemo } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 
-interface HeroGeometryProps {
-  mouseX?: number;
-  mouseY?: number;
-}
+// ─── Animated icosahedron mesh ────────────────────────────────────────────────
 
-function RotatingGeometry({ mouseX = 0, mouseY = 0 }: HeroGeometryProps) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
+function IcosahedronMesh() {
+  const solidRef = useRef<THREE.Mesh>(null);
+  const wireRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
 
+  // Raw mouse target (normalized -1..1)
+  const mouseTarget = useRef({ x: 0, y: 0 });
+  // Smoothed mouse offset (lerped each frame)
+  const mouseCurrent = useRef({ x: 0, y: 0 });
+  // Accumulated auto-rotation
+  const autoRot = useRef({ x: 0, y: 0 });
+  // Spring-like scale animation state
+  const springState = useRef({ scale: 0, velocity: 0 });
+
+  // Global mouse tracking
   useEffect(() => {
-    mouseRef.current = { x: mouseX, y: mouseY };
-  }, [mouseX, mouseY]);
+    const onMove = (e: MouseEvent) => {
+      mouseTarget.current = {
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -((e.clientY / window.innerHeight) * 2 - 1),
+      };
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
 
-  useFrame(() => {
-    if (!meshRef.current) return;
+  // Shared geometry — created once
+  const geo = useMemo(() => new THREE.IcosahedronGeometry(1.8, 1), []);
 
-    // Continuous rotation
-    meshRef.current.rotation.x += 0.003;
-    meshRef.current.rotation.y += 0.005;
-    meshRef.current.rotation.z += 0.002;
+  useFrame((_, delta) => {
+    const solid = solidRef.current;
+    const wire = wireRef.current;
+    const group = groupRef.current;
+    if (!solid || !wire || !group) return;
 
-    // Mouse interaction
-    meshRef.current.rotation.x += mouseRef.current.y * 0.0005;
-    meshRef.current.rotation.y += mouseRef.current.x * 0.0005;
+    // ── Spring scale-in (mass=1, tension=80, friction=20) ──
+    const target = 1;
+    const spring = springState.current;
+    const force = (target - spring.scale) * 80; // tension
+    spring.velocity += force * delta;
+    spring.velocity *= 1 - 20 * delta; // friction damping
+    spring.scale += spring.velocity * delta;
+    group.scale.setScalar(Math.max(0, spring.scale));
+
+    // ── Continuous auto-rotation ──
+    autoRot.current.x += 0.003;
+    autoRot.current.y += 0.005;
+
+    // ── Lerp mouse influence toward target (factor 0.05 = smooth lag) ──
+    mouseCurrent.current.x +=
+      (mouseTarget.current.y * 0.4 - mouseCurrent.current.x) * 0.05;
+    mouseCurrent.current.y +=
+      (mouseTarget.current.x * 0.4 - mouseCurrent.current.y) * 0.05;
+
+    // ── Apply combined rotation to both meshes ──
+    const rx = autoRot.current.x + mouseCurrent.current.x;
+    const ry = autoRot.current.y + mouseCurrent.current.y;
+    solid.rotation.x = rx;
+    solid.rotation.y = ry;
+    wire.rotation.x = rx;
+    wire.rotation.y = ry;
   });
 
   return (
-    <group ref={meshRef}>
-      <Icosahedron args={[2, 4]}>
+    <group ref={groupRef} scale={0}>
+      {/* Dark semi-transparent solid fill */}
+      <mesh ref={solidRef} geometry={geo}>
         <meshPhongMaterial
-          color="#2E75B6"
-          emissive="#00D4FF"
-          emissiveIntensity={0.3}
-          wireframe={false}
+          color="#0A1628"
+          transparent
+          opacity={0.6}
           shininess={100}
         />
-        <Wireframe
-          color="#00D4FF"
-          colorMap={undefined}
-          thickness={0.005}
-        />
-      </Icosahedron>
+      </mesh>
 
-      {/* Glow effect using point light */}
-      <pointLight
-        position={[5, 5, 5]}
-        intensity={0.8}
-        color="#00D4FF"
-      />
-      <pointLight
-        position={[-5, -5, -5]}
-        intensity={0.5}
-        color="#2E75B6"
-      />
-      <ambientLight intensity={0.4} />
+      {/* Cyan wireframe overlay */}
+      <mesh ref={wireRef} geometry={geo}>
+        <meshBasicMaterial
+          color="#00D4FF"
+          wireframe
+          transparent
+          opacity={0.8}
+        />
+      </mesh>
     </group>
   );
 }
 
+// ─── Canvas wrapper ───────────────────────────────────────────────────────────
+
 export function HeroGeometry() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      mouseRef.current = {
-        x: ((e.clientX - rect.left) / rect.width) * 2 - 1,
-        y: -((e.clientY - rect.top) / rect.height) * 2 + 1,
-      };
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
-    <div ref={containerRef} className="w-full h-full">
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        background:
+          "radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%)",
+      }}
+    >
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 75 }}
+        camera={{ position: [0, 0, 5], fov: 45 }}
+        gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
-        gl={{ alpha: true, antialias: true }}
       >
-        <RotatingGeometry
-          mouseX={mouseRef.current.x}
-          mouseY={mouseRef.current.y}
-        />
+        {/* Lighting */}
+        <ambientLight intensity={0.4} />
+        <pointLight position={[10, 10, 10]} intensity={1.2} color="#2E75B6" />
+        <pointLight position={[-10, -10, -5]} intensity={0.6} color="#00D4FF" />
+
+        {/* Geometry */}
+        <IcosahedronMesh />
+
+        {/* Bloom / glow post-processing */}
+        <EffectComposer>
+          <Bloom
+            intensity={1.5}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.9}
+          />
+        </EffectComposer>
       </Canvas>
     </div>
   );
