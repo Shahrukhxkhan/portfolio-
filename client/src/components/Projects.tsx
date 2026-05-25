@@ -118,15 +118,54 @@ export function Projects() {
                 </div>
 
                 {/* Project Visual */}
-                <div className="h-80 rounded-lg bg-gradient-to-br from-[#111827] to-[#0A0F1E] border border-[#1E3A5F] flex items-center justify-center overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="text-6xl opacity-20">
-                      {project.id === "skillloom" && "🎯"}
-                      {project.id === "pmnh-museum" && "🏛️"}
-                      {project.id === "bone-fracture" && "🏥"}
+                {project.id === "pmnh-museum" ? (
+                  <div
+                    className="relative group overflow-hidden rounded-xl border border-[#1E3A5F]"
+                    style={{ width: "100%", aspectRatio: "16/9" }}
+                  >
+                    {/* Actual dashboard screenshot */}
+                    <img
+                      src="/images/pmnh-dashboard.png"
+                      alt="PMNH Admin Dashboard"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    {/* Gradient overlay — bottom fade */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent opacity-60" />
+
+                    {/* Floating label — top left */}
+                    <div className="absolute top-3 left-3 bg-[#0A0F1E]/80 backdrop-blur-sm border border-[#2E75B6]/50 rounded-lg px-3 py-1">
+                      <span className="text-cyan-400 text-xs font-mono">
+                        ⚡ Live Admin Dashboard
+                      </span>
+                    </div>
+
+                    {/* Stats overlay — bottom */}
+                    <div className="absolute bottom-3 left-3 right-3 flex gap-3">
+                      <div className="bg-[#0A0F1E]/80 backdrop-blur-sm border border-[#1E3A5F] rounded-lg px-3 py-1 text-center">
+                        <div className="text-cyan-400 text-sm font-bold">2,145</div>
+                        <div className="text-gray-400 text-xs">QR Scans</div>
+                      </div>
+                      <div className="bg-[#0A0F1E]/80 backdrop-blur-sm border border-[#1E3A5F] rounded-lg px-3 py-1 text-center">
+                        <div className="text-cyan-400 text-sm font-bold">142</div>
+                        <div className="text-gray-400 text-xs">Active Visitors</div>
+                      </div>
+                      <div className="bg-[#0A0F1E]/80 backdrop-blur-sm border border-[#1E3A5F] rounded-lg px-3 py-1 text-center">
+                        <div className="text-cyan-400 text-sm font-bold">1h 25m</div>
+                        <div className="text-gray-400 text-xs">Avg Duration</div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="h-80 rounded-lg bg-gradient-to-br from-[#111827] to-[#0A0F1E] border border-[#1E3A5F] flex items-center justify-center overflow-hidden">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-6xl opacity-20">
+                        {project.id === "skillloom" && "🎯"}
+                        {project.id === "bone-fracture" && "🏥"}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
