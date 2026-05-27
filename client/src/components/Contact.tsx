@@ -3,6 +3,11 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Mail, MapPin, Github, Linkedin, Send, Check } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
 export function Contact() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -49,8 +54,17 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          title: formData.subject,
+          message: formData.message,
+          email: formData.email,
+        },
+        PUBLIC_KEY
+      );
 
       setIsSuccess(true);
       toast.success("Message sent! I'll get back to you soon.");
@@ -66,6 +80,7 @@ export function Contact() {
       // Reset success state after 3 seconds
       setTimeout(() => setIsSuccess(false), 3000);
     } catch (error) {
+      console.error("EmailJS error:", error);
       toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
