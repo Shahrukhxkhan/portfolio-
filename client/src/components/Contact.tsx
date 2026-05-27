@@ -158,7 +158,7 @@ export function Contact() {
                 <p className="text-[#8892A4] text-sm mb-4">Connect with me</p>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com/shahrukh032003"
+                    href="https://github.com/Shahrukhxkhan"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg bg-[#111827] border border-[#1E3A5F] flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
@@ -166,7 +166,7 @@ export function Contact() {
                     <Github size={20} />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/shahrukhxkhan/"
+                    href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg bg-[#111827] border border-[#1E3A5F] flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"

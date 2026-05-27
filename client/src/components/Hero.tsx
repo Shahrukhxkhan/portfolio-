@@ -87,7 +87,7 @@ export function Hero() {
               className="flex gap-6"
             >
               <a
-                href="https://github.com/shahrukh032003"
+                href="https://github.com/Shahrukhxkhan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#8892A4] hover:text-[#00D4FF] transition-colors duration-300 hover:scale-110 transform"
