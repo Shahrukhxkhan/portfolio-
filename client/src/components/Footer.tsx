@@ -73,7 +73,7 @@ export function Footer() {
                 <Github size={18} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/shahrukhxkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-[#111827] border border-[#1E3A5F] flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"

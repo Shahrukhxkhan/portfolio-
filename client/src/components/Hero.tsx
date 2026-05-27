@@ -95,7 +95,7 @@ export function Hero() {
                 <Github size={24} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/shahrukhxkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#8892A4] hover:text-[#00D4FF] transition-colors duration-300 hover:scale-110 transform"
