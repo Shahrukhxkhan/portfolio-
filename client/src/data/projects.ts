@@ -45,7 +45,7 @@ export const projects: Project[] = [
     id: "code-graveyard",
     title: "Code Graveyard",
     description:
-      "A digital repository of retired projects, experimental code snippets, and learning experiences. An interactive archive to reflect on past development journeys.",
+      "A curated collection of web projects, experiments, and development explorations built while learning React, TypeScript, and modern frontend tooling.",
     badges: ["Archive", "Web", "Showcase"],
     techStack: [
       "React",
