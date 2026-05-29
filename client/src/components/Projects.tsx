@@ -161,7 +161,7 @@ export function Projects() {
                     <div className="w-full h-full flex items-center justify-center">
                       <div className="text-6xl opacity-20">
                         {project.id === "skillloom" && "🎯"}
-                        {project.id === "bone-fracture" && "🏥"}
+                        {project.id === "code-graveyard" && "🪦"}
                       </div>
                     </div>
                   </div>

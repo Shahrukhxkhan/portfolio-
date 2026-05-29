@@ -42,19 +42,19 @@ export const projects: Project[] = [
     github: "https://github.com/shahrukh032003",
   },
   {
-    id: "bone-fracture",
-    title: "AI-Powered Bone Fracture Detection System",
+    id: "code-graveyard",
+    title: "Code Graveyard",
     description:
-      "Medical imaging system to detect and classify bone fracture severity from X-ray images using computer vision and ML algorithms.",
-    badges: ["AI", "Computer Vision", "Healthcare"],
+      "A digital repository of retired projects, experimental code snippets, and learning experiences. An interactive archive to reflect on past development journeys.",
+    badges: ["Archive", "Web", "Showcase"],
     techStack: [
-      "Python",
-      "Computer Vision",
-      "Machine Learning",
-      "Image Processing",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
     ],
     featured: true,
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/shahrukh032003/code-graveyard",
   },
   {
     id: "library-management",
