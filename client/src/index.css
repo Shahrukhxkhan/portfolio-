@@ -120,6 +120,25 @@
     scroll-behavior: smooth;
   }
   
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #2E75B6, #00D4FF);
+    border-radius: 5px;
+    border: 2px solid var(--background);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #00D4FF, #2E75B6);
+  }
+  
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;

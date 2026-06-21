@@ -7,11 +7,19 @@ import { useTheme } from "@/contexts/ThemeContext";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress((window.scrollY / totalHeight) * 100);
+      } else {
+        setScrollProgress(0);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,6 +46,11 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* Scroll Progress Bar */}
+      <div
+        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-[#2E75B6] to-[#00D4FF] transition-all duration-100 ease-out z-50"
+        style={{ width: `${scrollProgress}%` }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
