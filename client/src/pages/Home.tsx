@@ -12,7 +12,7 @@ import { ParticleField } from "@/components/three/ParticleField";
 
 export default function Home() {
   return (
-    <div className="relative bg-[#0A0F1E] text-white overflow-hidden">
+    <div className="relative bg-background text-foreground overflow-hidden">
       {/* 3D Particle Background */}
       <Suspense fallback={null}>
         <ParticleField />

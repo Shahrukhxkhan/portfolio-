@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { skillCategories } from "@/data/skills";
+import { skillCategories, topSkills } from "@/data/skills";
 
 export function Skills() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -80,7 +80,7 @@ export function Skills() {
                       key={skill}
                       variants={badgeVariants}
                       whileHover="hover"
-                      className="px-4 py-2 rounded-full bg-[#111827] border border-[#1E3A5F] text-[#F0F4FF] text-sm font-medium hover:border-[#00D4FF] transition-all duration-300 cursor-default"
+                      className="px-4 py-2 rounded-full bg-card border border-border text-foreground text-sm font-medium hover:border-[#00D4FF] transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </motion.div>
@@ -93,31 +93,24 @@ export function Skills() {
           {/* Skill Proficiency Section */}
           <motion.div
             variants={itemVariants}
-            className="mt-16 pt-16 border-t border-[#1E3A5F]"
+            className="mt-16 pt-16 border-t border-border"
           >
-            <h3 className="text-xl font-semibold text-white mb-8">
+            <h3 className="text-xl font-semibold text-foreground mb-8">
               Proficiency Levels
             </h3>
 
             <div className="space-y-6">
-              {[
-                { name: "Python", level: 95 },
-                { name: "FastAPI", level: 90 },
-                { name: "React.js", level: 85 },
-                { name: "Machine Learning", level: 88 },
-                { name: "Flutter", level: 82 },
-                { name: "PostgreSQL", level: 85 },
-              ].map((skill) => (
+              {topSkills.map((skill) => (
                 <motion.div
                   key={skill.name}
                   variants={itemVariants}
                   className="space-y-2"
                 >
                   <div className="flex justify-between items-center">
-                    <span className="text-[#F0F4FF] font-medium">{skill.name}</span>
+                    <span className="text-foreground font-medium">{skill.name}</span>
                     <span className="text-[#00D4FF] text-sm">{skill.level}%</span>
                   </div>
-                  <div className="w-full h-2 bg-[#111827] rounded-full overflow-hidden border border-[#1E3A5F]">
+                  <div className="w-full h-2 bg-card rounded-full overflow-hidden border border-border">
                     <motion.div
                       className="h-full bg-gradient-to-r from-[#2E75B6] to-[#00D4FF]"
                       initial={{ width: 0 }}

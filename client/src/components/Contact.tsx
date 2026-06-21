@@ -135,8 +135,8 @@ export function Contact() {
                   <Mail size={20} className="text-white" />
                 </div>
                 <div>
-                  <p className="text-[#8892A4] text-sm mb-1">Email</p>
-                  <p className="text-white font-medium group-hover:text-[#00D4FF] transition-colors">
+                  <p className="text-muted-foreground text-sm mb-1">Email</p>
+                  <p className="text-foreground font-medium group-hover:text-[#00D4FF] transition-colors">
                     shahrukh032003@gmail.com
                   </p>
                 </div>
@@ -148,20 +148,20 @@ export function Contact() {
                   <MapPin size={20} className="text-white" />
                 </div>
                 <div>
-                  <p className="text-[#8892A4] text-sm mb-1">Location</p>
-                  <p className="text-white font-medium">Wah Cantt, Pakistan</p>
+                  <p className="text-muted-foreground text-sm mb-1">Location</p>
+                  <p className="text-foreground font-medium">Wah Cantt, Pakistan</p>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="pt-8 border-t border-[#1E3A5F]">
-                <p className="text-[#8892A4] text-sm mb-4">Connect with me</p>
+              <div className="pt-8 border-t border-border">
+                <p className="text-muted-foreground text-sm mb-4">Connect with me</p>
                 <div className="flex gap-4">
                   <a
                     href="https://github.com/Shahrukhxkhan"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-lg bg-[#111827] border border-[#1E3A5F] flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+                    className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
                   >
                     <Github size={20} />
                   </a>
@@ -169,7 +169,7 @@ export function Contact() {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-lg bg-[#111827] border border-[#1E3A5F] flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+                    className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
                   >
                     <Linkedin size={20} />
                   </a>
@@ -185,7 +185,7 @@ export function Contact() {
             >
               {/* Name */}
               <div>
-                <label className="block text-[#F0F4FF] text-sm font-medium mb-2">
+                <label className="block text-foreground text-sm font-medium mb-2">
                   Name
                 </label>
                 <input
@@ -194,14 +194,14 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[#111827] border border-[#1E3A5F] text-white placeholder-[#8892A4] focus:border-[#00D4FF] focus:outline-none transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:border-[#00D4FF] focus:outline-none transition-all duration-300"
                   placeholder="Your name"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-[#F0F4FF] text-sm font-medium mb-2">
+                <label className="block text-foreground text-sm font-medium mb-2">
                   Email
                 </label>
                 <input
@@ -210,14 +210,14 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[#111827] border border-[#1E3A5F] text-white placeholder-[#8892A4] focus:border-[#00D4FF] focus:outline-none transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:border-[#00D4FF] focus:outline-none transition-all duration-300"
                   placeholder="your@email.com"
                 />
               </div>
 
               {/* Subject */}
               <div>
-                <label className="block text-[#F0F4FF] text-sm font-medium mb-2">
+                <label className="block text-foreground text-sm font-medium mb-2">
                   Subject
                 </label>
                 <input
@@ -226,14 +226,14 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[#111827] border border-[#1E3A5F] text-white placeholder-[#8892A4] focus:border-[#00D4FF] focus:outline-none transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:border-[#00D4FF] focus:outline-none transition-all duration-300"
                   placeholder="Subject"
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className="block text-[#F0F4FF] text-sm font-medium mb-2">
+                <label className="block text-foreground text-sm font-medium mb-2">
                   Message
                 </label>
                 <textarea
@@ -242,7 +242,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-[#111827] border border-[#1E3A5F] text-white placeholder-[#8892A4] focus:border-[#00D4FF] focus:outline-none transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:border-[#00D4FF] focus:outline-none transition-all duration-300 resize-none"
                   placeholder="Your message..."
                 />
               </div>

@@ -47,7 +47,7 @@ export function Experience() {
           {/* Timeline */}
           <div className="relative">
             {/* Center Line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#2E75B6] to-[#00D4FF]" />
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[#2E75B6] to-[#00D4FF]" />
 
             {/* Timeline Items */}
             <div className="space-y-12">
@@ -55,14 +55,12 @@ export function Experience() {
                 <motion.div
                   key={exp.id}
                   variants={itemVariants}
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
-                    index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-                  }`}
+                  className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
                 >
                   {/* Timeline Dot */}
-                  <div className="hidden md:flex justify-center">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#00D4FF] border-4 border-background shadow-lg shadow-cyan-500/50 z-10 hidden md:flex items-center justify-center">
                     <motion.div
-                      className="w-6 h-6 rounded-full bg-[#00D4FF] border-4 border-[#0A0F1E] shadow-lg shadow-cyan-500/50"
+                      className="w-2 h-2 rounded-full bg-[#00D4FF]"
                       whileHover={{ scale: 1.3 }}
                       animate={{ boxShadow: ["0 0 20px rgba(0, 212, 255, 0.5)", "0 0 40px rgba(0, 212, 255, 0.8)", "0 0 20px rgba(0, 212, 255, 0.5)"] }}
                       transition={{ duration: 2, repeat: Infinity }}
@@ -71,13 +69,17 @@ export function Experience() {
 
                   {/* Content */}
                   <motion.div
-                    className="p-6 rounded-lg bg-[#111827] border border-[#1E3A5F] hover:border-[#00D4FF] transition-all duration-300 space-y-4"
+                    className={`p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 ${
+                      index % 2 === 0
+                        ? "md:col-start-1 md:col-span-1"
+                        : "md:col-start-2 md:col-span-1"
+                    }`}
                     whileHover={{ scale: 1.02 }}
                   >
                     <div>
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h3 className="text-xl font-bold text-white">
+                          <h3 className="text-xl font-bold text-foreground">
                             {exp.role}
                           </h3>
                           <p className="text-[#00D4FF] font-medium">{exp.company}</p>
@@ -88,14 +90,14 @@ export function Experience() {
                           </span>
                         )}
                       </div>
-                      <p className="text-[#8892A4] text-sm">{exp.duration}</p>
+                      <p className="text-muted-foreground text-sm">{exp.duration}</p>
                     </div>
 
                     <ul className="space-y-2">
                       {exp.description.map((bullet, i) => (
                         <li
                           key={i}
-                          className="text-[#8892A4] text-sm flex gap-3"
+                          className="text-muted-foreground text-sm flex gap-3"
                         >
                           <span className="text-[#00D4FF] flex-shrink-0">▸</span>
                           <span>{bullet}</span>

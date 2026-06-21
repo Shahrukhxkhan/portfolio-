@@ -46,7 +46,7 @@ export function Hero() {
             {/* Main Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
             >
               Muhammad Shahrukh Khan
             </motion.h1>
@@ -54,7 +54,7 @@ export function Hero() {
             {/* Subheading */}
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-[#8892A4] mb-8 leading-relaxed max-w-xl"
+              className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl"
             >
               Building intelligent systems that solve real-world problems. Specializing in AI/ML and full-stack development.
             </motion.p>
@@ -112,7 +112,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <Suspense fallback={<div className="w-full h-full bg-[#111827] rounded-lg" />}>
+            <Suspense fallback={<div className="w-full h-full bg-card border border-border rounded-lg" />}>
               <HeroGeometry />
             </Suspense>
           </motion.div>
@@ -125,7 +125,7 @@ export function Hero() {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-[#8892A4] text-sm">Scroll to explore</span>
+            <span className="text-muted-foreground text-sm">Scroll to explore</span>
             <ArrowDown size={20} className="text-[#00D4FF]" />
           </div>
         </motion.div>

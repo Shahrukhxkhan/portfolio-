@@ -51,7 +51,7 @@ export function Certifications() {
               <motion.div
                 key={cert.id}
                 variants={itemVariants}
-                className="group p-6 rounded-lg bg-[#111827] border border-[#1E3A5F] hover:border-[#00D4FF] transition-all duration-300 space-y-4 relative overflow-hidden"
+                className="group p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 relative overflow-hidden"
                 whileHover={{ scale: 1.05 }}
               >
                 {/* Shimmer Effect */}
@@ -66,13 +66,13 @@ export function Certifications() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-lg font-bold text-foreground mb-2">
                     {cert.name}
                   </h3>
                   <p className="text-[#00D4FF] text-sm font-medium mb-1">
                     {cert.issuer}
                   </p>
-                  <p className="text-[#8892A4] text-sm">{cert.year}</p>
+                  <p className="text-muted-foreground text-sm">{cert.year}</p>
                 </div>
               </motion.div>
             ))}

@@ -88,15 +88,15 @@ export function About() {
               variants={itemVariants}
               className="space-y-6"
             >
-              <p className="text-[#8892A4] text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 I'm a Computer Science student at COMSATS University Islamabad, Wah Campus, graduating in 2027. I specialize in building AI-powered full-stack applications that bridge the gap between intelligent systems and real-world usability.
               </p>
 
-              <p className="text-[#8892A4] text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 My flagship project, SkillLoom, is an AI-driven hiring platform for Pakistan's informal textile workforce — combining biometric verification, smart job matching, and demand heatmaps to connect 15M+ workers with opportunities.
               </p>
 
-              <p className="text-[#8892A4] text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 I've completed internships in AI/ML Engineering and Python development, earning a Best Performance Award at DevelopersHub Corporation. I'm passionate about technology that creates genuine social impact.
               </p>
             </motion.div>
@@ -114,13 +114,13 @@ export function About() {
               ].map((stat, i) => (
                 <motion.div
                   key={i}
-                  className="p-6 rounded-lg bg-[#111827] border border-[#1E3A5F] hover:border-[#00D4FF] transition-all duration-300"
+                  className="p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300"
                   whileHover={{ scale: 1.05, borderColor: "#00D4FF" }}
                 >
                   <div className="text-3xl md:text-4xl font-bold text-[#00D4FF] mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-[#8892A4]">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
