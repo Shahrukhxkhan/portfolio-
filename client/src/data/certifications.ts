@@ -3,10 +3,20 @@ export interface Certification {
   name: string;
   issuer: string;
   year: number;
+  badge?: string;
+  badgeType?: "gold" | "green" | string;
   icon?: string;
 }
 
 export const certifications: Certification[] = [
+  {
+    id: "pof-internship",
+    name: "AI/ML & DevOps Internship",
+    issuer: "Pakistan Ordnance Factories (POF)",
+    year: 2026,
+    badge: "🟢 Currently Active",
+    badgeType: "green",
+  },
   {
     id: "generative-ai",
     name: "Generative AI Boot Camp",

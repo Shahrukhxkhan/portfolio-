@@ -57,11 +57,22 @@ export function Certifications() {
                 {/* Shimmer Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10 transform -skew-x-12 group-hover:translate-x-full transition-all duration-700" />
 
-                {/* Icon */}
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2E75B6] to-[#00D4FF] flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                {/* Icon & Badge */}
+                <div className="relative z-10 flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2E75B6] to-[#00D4FF] flex items-center justify-center group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
                     <Award size={24} className="text-white" />
                   </div>
+                  {cert.badge && (
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                        cert.badgeType === "green"
+                          ? "bg-[#22C55E] text-slate-950 font-bold"
+                          : "bg-gradient-to-r from-yellow-500 to-orange-500 text-white"
+                      }`}
+                    >
+                      {cert.badge}
+                    </span>
+                  )}
                 </div>
 
                 {/* Content */}

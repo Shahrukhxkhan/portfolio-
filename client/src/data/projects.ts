@@ -39,7 +39,7 @@ export const projects: Project[] = [
     techStack: ["Python", "FastAPI", "Flutter", "Supabase", "PostgreSQL"],
     highlight: "Real Client · Production System",
     featured: true,
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan/PMNH-QR",
   },
   {
     id: "code-graveyard",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
       "Vite",
     ],
     featured: true,
-    github: "https://github.com/shahrukh032003/code-graveyard",
+    github: "https://github.com/Shahrukhxkhan/Code-Graveyard",
   },
   {
     id: "library-management",

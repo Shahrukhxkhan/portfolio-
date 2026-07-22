@@ -85,7 +85,13 @@ export function Experience() {
                           <p className="text-[#00D4FF] font-medium">{exp.company}</p>
                         </div>
                         {exp.badge && (
-                          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-yellow-500 to-orange-500 text-white whitespace-nowrap ml-2">
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ml-2 ${
+                              exp.badgeType === "green"
+                                ? "bg-[#22C55E] text-slate-950 font-bold"
+                                : "bg-gradient-to-r from-yellow-500 to-orange-500 text-white"
+                            }`}
+                          >
                             {exp.badge}
                           </span>
                         )}

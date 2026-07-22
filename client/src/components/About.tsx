@@ -15,7 +15,7 @@ export function About() {
     if (!inView) return;
 
     const targets = {
-      internships: 3,
+      internships: 4,
       projects: 10,
       clients: 3,
       specializations: 2,
@@ -97,7 +97,7 @@ export function About() {
               </p>
 
               <p className="text-muted-foreground text-lg leading-relaxed">
-                I've completed internships in AI/ML Engineering and Python development, earning a Best Performance Award at DevelopersHub Corporation. I'm passionate about technology that creates genuine social impact.
+                I've completed 4 internships across AI/ML Engineering, Python development, and DevOps — including a current role at Pakistan Ordnance Factories (POF), earning a Best Performance Award at DevelopersHub Corporation. I'm passionate about technology that creates genuine social impact.
               </p>
             </motion.div>
 
