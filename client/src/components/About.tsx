@@ -66,6 +66,7 @@ export function About() {
     <section
       id="about"
       ref={ref}
+      aria-labelledby="about-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,6 +77,7 @@ export function About() {
         >
           {/* Section Heading */}
           <motion.h2
+            id="about-heading"
             variants={itemVariants}
             className="section-heading"
           >

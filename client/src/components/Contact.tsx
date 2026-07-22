@@ -96,6 +96,7 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
+      aria-labelledby="contact-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,6 +107,7 @@ export function Contact() {
         >
           {/* Section Heading */}
           <motion.h2
+            id="contact-heading"
             variants={itemVariants}
             className="section-heading"
           >
@@ -130,6 +132,10 @@ export function Contact() {
               <div
                 className="flex gap-4 cursor-pointer group"
                 onClick={() => copyToClipboard("shahrukh032003@gmail.com")}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && copyToClipboard("shahrukh032003@gmail.com")}
+                aria-label="Copy email address shahrukh032003@gmail.com to clipboard"
               >
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2E75B6] to-[#00D4FF] flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
                   <Mail size={20} className="text-white" />
@@ -161,6 +167,7 @@ export function Contact() {
                     href="https://github.com/Shahrukhxkhan"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Muhammad Shahrukh Khan on GitHub"
                     className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
                   >
                     <Github size={20} />
@@ -169,6 +176,7 @@ export function Contact() {
                     href="https://www.linkedin.com/in/shahrukhxkhan/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Muhammad Shahrukh Khan on LinkedIn"
                     className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
                   >
                     <Linkedin size={20} />
@@ -185,10 +193,11 @@ export function Contact() {
             >
               {/* Name */}
               <div>
-                <label className="block text-foreground text-sm font-medium mb-2">
+                <label htmlFor="contact-name" className="block text-foreground text-sm font-medium mb-2">
                   Name
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -201,10 +210,11 @@ export function Contact() {
 
               {/* Email */}
               <div>
-                <label className="block text-foreground text-sm font-medium mb-2">
+                <label htmlFor="contact-email" className="block text-foreground text-sm font-medium mb-2">
                   Email
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -217,10 +227,11 @@ export function Contact() {
 
               {/* Subject */}
               <div>
-                <label className="block text-foreground text-sm font-medium mb-2">
+                <label htmlFor="contact-subject" className="block text-foreground text-sm font-medium mb-2">
                   Subject
                 </label>
                 <input
+                  id="contact-subject"
                   type="text"
                   name="subject"
                   value={formData.subject}
@@ -233,10 +244,11 @@ export function Contact() {
 
               {/* Message */}
               <div>
-                <label className="block text-foreground text-sm font-medium mb-2">
+                <label htmlFor="contact-message" className="block text-foreground text-sm font-medium mb-2">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}

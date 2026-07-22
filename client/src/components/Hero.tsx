@@ -26,7 +26,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section id="hero" aria-labelledby="hero-heading" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
@@ -45,18 +45,26 @@ export function Hero() {
 
             {/* Main Heading */}
             <motion.h1
+              id="hero-heading"
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4 leading-tight"
             >
               Muhammad Shahrukh Khan
             </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl font-semibold text-[#00D4FF] mb-6"
+            >
+              AI Developer & Full-Stack Engineer
+            </motion.p>
 
             {/* Subheading */}
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl"
             >
-              Building intelligent systems that solve real-world problems. Specializing in AI/ML and full-stack development.
+              Building intelligent systems, machine learning models, and full-stack web applications that solve real-world problems.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -68,6 +76,7 @@ export function Hero() {
                 to="projects"
                 smooth={true}
                 duration={500}
+                aria-label="View Projects Section"
                 className="px-8 py-3 bg-gradient-to-r from-[#2E75B6] to-[#00D4FF] text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 cursor-pointer text-center transform hover:scale-105"
               >
                 View My Work
@@ -75,6 +84,7 @@ export function Hero() {
               <a
                 href="/resume.pdf"
                 download
+                aria-label="Download Muhammad Shahrukh Khan's Resume"
                 className="px-8 py-3 border-2 border-[#2E75B6] text-[#2E75B6] rounded-lg font-semibold hover:bg-[#2E75B6]/10 transition-all duration-300 text-center transform hover:scale-105"
               >
                 Download Resume
@@ -90,6 +100,7 @@ export function Hero() {
                 href="https://github.com/Shahrukhxkhan"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Muhammad Shahrukh Khan on GitHub"
                 className="text-[#8892A4] hover:text-[#00D4FF] transition-colors duration-300 hover:scale-110 transform"
               >
                 <Github size={24} />
@@ -98,6 +109,7 @@ export function Hero() {
                 href="https://www.linkedin.com/in/shahrukhxkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Muhammad Shahrukh Khan on LinkedIn"
                 className="text-[#8892A4] hover:text-[#00D4FF] transition-colors duration-300 hover:scale-110 transform"
               >
                 <Linkedin size={24} />

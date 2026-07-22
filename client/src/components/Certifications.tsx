@@ -29,6 +29,7 @@ export function Certifications() {
     <section
       id="certifications"
       ref={ref}
+      aria-labelledby="certifications-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,6 +40,7 @@ export function Certifications() {
         >
           {/* Section Heading */}
           <motion.h2
+            id="certifications-heading"
             variants={itemVariants}
             className="section-heading"
           >
@@ -48,7 +50,7 @@ export function Certifications() {
           {/* Certifications Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => (
-              <motion.div
+              <motion.article
                 key={cert.id}
                 variants={itemVariants}
                 className="group p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 relative overflow-hidden"
@@ -85,7 +87,7 @@ export function Certifications() {
                   </p>
                   <p className="text-muted-foreground text-sm">{cert.year}</p>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </motion.div>

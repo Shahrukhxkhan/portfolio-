@@ -22,7 +22,7 @@ export default function Home() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         {/* Hero Section */}
         <Hero />
 
@@ -43,10 +43,10 @@ export default function Home() {
 
         {/* Contact Section */}
         <Contact />
-
-        {/* Footer */}
-        <Footer />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

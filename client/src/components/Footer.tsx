@@ -68,6 +68,7 @@ export function Footer() {
                 href="https://github.com/Shahrukhxkhan"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Muhammad Shahrukh Khan on GitHub"
                 className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
               >
                 <Github size={18} />
@@ -76,12 +77,14 @@ export function Footer() {
                 href="https://www.linkedin.com/in/shahrukhxkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Muhammad Shahrukh Khan on LinkedIn"
                 className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
               >
                 <Linkedin size={18} />
               </a>
               <a
                 href="mailto:shahrukh032003@gmail.com"
+                aria-label="Email Muhammad Shahrukh Khan"
                 className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
               >
                 <Mail size={18} />

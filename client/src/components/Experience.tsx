@@ -28,6 +28,7 @@ export function Experience() {
     <section
       id="experience"
       ref={ref}
+      aria-labelledby="experience-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,6 +39,7 @@ export function Experience() {
         >
           {/* Section Heading */}
           <motion.h2
+            id="experience-heading"
             variants={itemVariants}
             className="section-heading"
           >
@@ -68,7 +70,7 @@ export function Experience() {
                   </div>
 
                   {/* Content */}
-                  <motion.div
+                  <motion.article
                     className={`p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 ${
                       index % 2 === 0
                         ? "md:col-start-1 md:col-span-1"
@@ -110,7 +112,7 @@ export function Experience() {
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </motion.article>
                 </motion.div>
               ))}
             </div>

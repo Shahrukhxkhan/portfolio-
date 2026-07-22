@@ -33,6 +33,7 @@ export function Projects() {
     <section
       id="projects"
       ref={ref}
+      aria-labelledby="projects-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,6 +44,7 @@ export function Projects() {
         >
           {/* Section Heading */}
           <motion.h2
+            id="projects-heading"
             variants={itemVariants}
             className="section-heading"
           >
@@ -52,7 +54,7 @@ export function Projects() {
           {/* Featured Projects */}
           <div className="space-y-16 mb-20">
             {featuredProjects.map((project, index) => (
-              <motion.div
+              <motion.article
                 key={project.id}
                 variants={itemVariants}
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
@@ -108,6 +110,7 @@ export function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View ${project.title} on GitHub`}
                         className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-card border border-border text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
                       >
                         <Github size={18} />
@@ -126,7 +129,9 @@ export function Projects() {
                     {/* Actual dashboard screenshot */}
                     <img
                       src="/images/pmnh-dashboard.png"
-                      alt="PMNH Admin Dashboard"
+                      alt="Pakistan Museum of Natural History (PMNH) Admin Dashboard interface showing visitor analytics and QR scan telemetry"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
 
@@ -166,7 +171,7 @@ export function Projects() {
                     </div>
                   </div>
                 )}
-              </motion.div>
+              </motion.article>
             ))}
           </div>
 
@@ -186,7 +191,7 @@ export function Projects() {
                   tiltMaxAngleY={10}
                   scale={1.05}
                 >
-                  <motion.div
+                  <motion.article
                     variants={itemVariants}
                     className="h-full p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 cursor-pointer"
                   >
@@ -225,13 +230,14 @@ export function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View ${project.title} on GitHub`}
                         className="inline-flex items-center gap-2 text-[#00D4FF] hover:text-foreground transition-colors"
                       >
                         <Github size={16} />
                         <span className="text-sm">View on GitHub</span>
                       </a>
                     )}
-                  </motion.div>
+                  </motion.article>
                 </Tilt>
               ))}
             </div>
