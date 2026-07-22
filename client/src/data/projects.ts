@@ -28,7 +28,7 @@ export const projects: Project[] = [
     ],
     highlight: "15M+ Potential Users",
     featured: true,
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "pmnh-museum",
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     description: "Full-stack library management with user authentication and book tracking.",
     badges: ["C++"],
     techStack: ["C++", "OOP", "File Handling"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "movie-booking",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     description: "Online movie ticket reservation platform with seat selection and payment integration.",
     badges: ["C++"],
     techStack: ["C++", "OOP", "Data Structures"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "university-management",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     description: "Comprehensive system for managing student records, courses, and grades.",
     badges: ["SQL"],
     techStack: ["SQL", "SQL Server", "Database Design", "SSMS"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "fitness-follies",
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     description: "Mobile fitness tracking application with workout logging and progress monitoring.",
     badges: ["C++"],
     techStack: ["C++", "OOP", "File Handling"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "digital-watch",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     description: "Python-based digital watch application with multiple time zones.",
     badges: ["Python"],
     techStack: ["Python", "APIs", "Timezone"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "mcq-game",
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     description: "Interactive multiple-choice question game with scoring system.",
     badges: ["Python"],
     techStack: ["Python", "CLI", "Game Logic"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
   {
     id: "calculator",
@@ -110,6 +110,6 @@ export const projects: Project[] = [
     description: "Advanced calculator with support for complex mathematical operations.",
     badges: ["Python"],
     techStack: ["Python"],
-    github: "https://github.com/shahrukh032003",
+    github: "https://github.com/Shahrukhxkhan",
   },
 ];
