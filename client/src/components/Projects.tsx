@@ -1,8 +1,16 @@
+import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { projects } from "@/data/projects";
 import { Github, ExternalLink } from "lucide-react";
 import Tilt from "react-parallax-tilt";
+
+const getFeaturedLabel = (id: string, title: string) => {
+  if (id === 'skillloom') return 'SkillLoom';
+  if (id === 'pmnh-museum') return 'PMNH Museum App';
+  if (id.includes('bone') || title.toLowerCase().includes('bone')) return 'Bone Fracture Detection';
+  return title;
+};
 
 export function Projects() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -111,6 +119,7 @@ export function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} on GitHub`}
+                        onClick={() => ReactGA.event({ category: 'Projects', action: 'GitHub Click', label: getFeaturedLabel(project.id, project.title) })}
                         className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-card border border-border text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
                       >
                         <Github size={18} />
@@ -231,6 +240,7 @@ export function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} on GitHub`}
+                        onClick={() => ReactGA.event({ category: 'Projects', action: 'GitHub Click', label: project.title })}
                         className="inline-flex items-center gap-2 text-[#00D4FF] hover:text-foreground transition-colors"
                       >
                         <Github size={16} />

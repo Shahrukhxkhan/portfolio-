@@ -1,3 +1,4 @@
+import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
@@ -65,6 +66,12 @@ export function Contact() {
         },
         PUBLIC_KEY
       );
+
+      ReactGA.event({
+        category: 'Contact',
+        action: 'Form Submit',
+        label: 'Send Message'
+      });
 
       setIsSuccess(true);
       toast.success("Message sent! I'll get back to you soon.");

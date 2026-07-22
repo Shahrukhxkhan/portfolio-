@@ -1,9 +1,29 @@
+import ReactGA from 'react-ga4';
+import { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { experiences } from "@/data/experience";
 
 export function Experience() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          ReactGA.event({
+            category: 'Engagement',
+            action: 'Section View',
+            label: 'Experience Timeline'
+          });
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,7 +51,7 @@ export function Experience() {
       aria-labelledby="experience-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"

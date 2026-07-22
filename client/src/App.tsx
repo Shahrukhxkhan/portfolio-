@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import ReactGA from 'react-ga4';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -19,6 +21,14 @@ function Router() {
 }
 
 function App() {
+  useEffect(() => {
+    ReactGA.send({ 
+      hitType: 'pageview', 
+      page: window.location.pathname,
+      title: 'Muhammad Shahrukh Khan - Portfolio'
+    });
+  }, []);
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark" switchable>

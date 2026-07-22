@@ -1,3 +1,4 @@
+import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
@@ -77,6 +78,13 @@ export function Hero() {
                 smooth={true}
                 duration={500}
                 aria-label="View Projects Section"
+                onClick={() => {
+                  ReactGA.event({
+                    category: 'Hero',
+                    action: 'Button Click',
+                    label: 'View My Work'
+                  });
+                }}
                 className="px-8 py-3 bg-gradient-to-r from-[#2E75B6] to-[#00D4FF] text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 cursor-pointer text-center transform hover:scale-105"
               >
                 View My Work
@@ -85,6 +93,13 @@ export function Hero() {
                 href="/resume.pdf"
                 download
                 aria-label="Download Muhammad Shahrukh Khan's Resume"
+                onClick={() => {
+                  ReactGA.event({
+                    category: 'Hero',
+                    action: 'Button Click',
+                    label: 'Download Resume'
+                  });
+                }}
                 className="px-8 py-3 border-2 border-[#2E75B6] text-[#2E75B6] rounded-lg font-semibold hover:bg-[#2E75B6]/10 transition-all duration-300 text-center transform hover:scale-105"
               >
                 Download Resume
@@ -101,6 +116,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Muhammad Shahrukh Khan on GitHub"
+                onClick={() => ReactGA.event({ category: 'Social', action: 'Click', label: 'GitHub - Hero' })}
                 className="text-[#8892A4] hover:text-[#00D4FF] transition-colors duration-300 hover:scale-110 transform"
               >
                 <Github size={24} />
@@ -110,6 +126,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Muhammad Shahrukh Khan on LinkedIn"
+                onClick={() => ReactGA.event({ category: 'Social', action: 'Click', label: 'LinkedIn - Hero' })}
                 className="text-[#8892A4] hover:text-[#00D4FF] transition-colors duration-300 hover:scale-110 transform"
               >
                 <Linkedin size={24} />
