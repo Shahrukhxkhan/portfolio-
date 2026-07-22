@@ -41,6 +41,7 @@ export function Skills() {
     <section
       id="skills"
       ref={ref}
+      aria-labelledby="skills-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,6 +52,7 @@ export function Skills() {
         >
           {/* Section Heading */}
           <motion.h2
+            id="skills-heading"
             variants={itemVariants}
             className="section-heading"
           >

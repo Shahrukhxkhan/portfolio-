@@ -65,7 +65,7 @@ export function Hero() {
               variants={itemVariants}
               className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl"
             >
-              Building intelligent systems, machine learning models, and full-stack web applications that solve real-world problems.
+              AI Developer and Full-Stack Engineer building intelligent machine learning models, scalable web applications, and real-world software solutions.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -75,6 +75,7 @@ export function Hero() {
             >
               <ScrollLink
                 to="projects"
+                href="#projects"
                 smooth={true}
                 duration={500}
                 aria-label="View Projects Section"

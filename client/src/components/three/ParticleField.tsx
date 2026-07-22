@@ -147,7 +147,7 @@ function ParticleSystem({ count = 150 }: ParticleFieldProps) {
 
 export function ParticleField() {
   return (
-    <div className="fixed inset-0 -z-10 h-screen w-screen">
+    <div className="fixed inset-0 -z-10 h-screen w-screen" aria-hidden="true">
       <Canvas
         camera={{ position: [0, 0, 15], fov: 75 }}
         style={{ background: "transparent" }}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shahrukhxkhan.vercel.app/sitemap.xml

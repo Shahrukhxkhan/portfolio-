@@ -33,22 +33,32 @@ export function Footer() {
             <h4 className="text-foreground font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#about" className="hover:text-[#00D4FF] transition-colors">
+                <a href="#about" aria-label="Learn more about Muhammad Shahrukh Khan" className="hover:text-[#00D4FF] transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-[#00D4FF] transition-colors">
+                <a href="#skills" aria-label="Explore Technical Skills" className="hover:text-[#00D4FF] transition-colors">
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a href="#projects" aria-label="View Key Projects" className="hover:text-[#00D4FF] transition-colors">
                   Projects
                 </a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-[#00D4FF] transition-colors">
+                <a href="#experience" aria-label="View Professional Experience" className="hover:text-[#00D4FF] transition-colors">
                   Experience
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#00D4FF] transition-colors">
+                <a href="#certifications" aria-label="View Certifications and Recognition" className="hover:text-[#00D4FF] transition-colors">
+                  Certifications
+                </a>
+              </li>
+              <li>
+                <a href="#contact" aria-label="Get in touch with Muhammad Shahrukh Khan" className="hover:text-[#00D4FF] transition-colors">
                   Contact
                 </a>
               </li>

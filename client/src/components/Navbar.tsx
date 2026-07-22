@@ -58,6 +58,7 @@ export function Navbar() {
             {/* Logo */}
             <ScrollLink
               to="hero"
+              href="#hero"
               smooth={true}
               duration={500}
               aria-label="Muhammad Shahrukh Khan Home"
@@ -77,8 +78,10 @@ export function Navbar() {
                 <ScrollLink
                   key={link.to}
                   to={link.to}
+                  href={`#${link.to}`}
                   smooth={true}
                   duration={500}
+                  aria-label={`Navigate to ${link.label} section`}
                   className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm font-medium relative group"
                 >
                   {link.label}
@@ -133,8 +136,10 @@ export function Navbar() {
                   <ScrollLink
                     key={link.to}
                     to={link.to}
+                    href={`#${link.to}`}
                     smooth={true}
                     duration={500}
+                    aria-label={`Navigate to ${link.label} section`}
                     className="block text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm font-medium"
                     onClick={() => setIsOpen(false)}
                   >

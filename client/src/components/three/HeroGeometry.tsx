@@ -98,6 +98,7 @@ function IcosahedronMesh() {
 export function HeroGeometry() {
   return (
     <div
+      aria-hidden="true"
       style={{
         width: "100%",
         height: "100%",
