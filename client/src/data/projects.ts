@@ -28,7 +28,7 @@ export const projects: Project[] = [
     ],
     highlight: "15M+ Potential Users",
     featured: true,
-    github: "https://github.com/Shahrukhxkhan",
+    github: "https://github.com/Shahrukhxkhan/SKILLLOOM-REVIEW-",
   },
   {
     id: "pmnh-museum",
