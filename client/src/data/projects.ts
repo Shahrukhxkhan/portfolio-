@@ -57,6 +57,26 @@ export const projects: Project[] = [
     github: "https://github.com/Shahrukhxkhan/Code-Graveyard",
   },
   {
+    id: "ai-review-pro",
+    title: "AI Review Pro",
+    description:
+      "Automated AI code and content audit platform with real-time scoring, diff comparison, Supabase storage, and PDF report generation.",
+    badges: ["AI / LLM", "Full-Stack", "Developer Tools"],
+    techStack: [
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "Gemini 2.5 Flash API",
+      "Supabase",
+      "Monaco Editor",
+      "Recharts",
+    ],
+    highlight: "Real-World System",
+    github: "https://github.com/Shahrukhxkhan/AI-Review-Pro",
+  },
+  {
     id: "library-management",
     title: "Library Management System",
     description: "Full-stack library management with user authentication and book tracking.",
