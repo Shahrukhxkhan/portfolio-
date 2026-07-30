@@ -1,59 +1,29 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { certifications } from "@/data/certifications";
 import { Award } from "lucide-react";
+import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export function Certifications() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
     <section
       id="certifications"
-      ref={ref}
       aria-labelledby="certifications-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {/* Section Heading */}
-          <motion.h2
-            id="certifications-heading"
-            variants={itemVariants}
-            className="section-heading"
-          >
+        {/* Section Heading */}
+        <ScrollReveal direction="up">
+          <h2 id="certifications-heading" className="section-heading">
             Certifications & Recognition
-          </motion.h2>
+          </h2>
+        </ScrollReveal>
 
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert) => (
+        {/* Certifications Grid */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.12} delayChildren={0.2}>
+          {certifications.map((cert) => (
+            <StaggerItem key={cert.id} direction="scale">
               <motion.article
-                key={cert.id}
-                variants={itemVariants}
-                className="group p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 relative overflow-hidden"
+                className="group p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 relative overflow-hidden h-full"
                 whileHover={{ scale: 1.05 }}
               >
                 {/* Shimmer Effect */}
@@ -88,9 +58,9 @@ export function Certifications() {
                   <p className="text-muted-foreground text-sm">{cert.year}</p>
                 </div>
               </motion.article>
-            ))}
-          </div>
-        </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );

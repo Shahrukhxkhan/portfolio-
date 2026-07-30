@@ -1,11 +1,10 @@
 import ReactGA from 'react-ga4';
 import { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { experiences } from "@/data/experience";
+import ScrollReveal from './ScrollReveal';
 
 export function Experience() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -25,60 +24,40 @@ export function Experience() {
     return () => observer.disconnect();
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
   return (
     <section
       id="experience"
-      ref={ref}
       aria-labelledby="experience-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {/* Section Heading */}
-          <motion.h2
-            id="experience-heading"
-            variants={itemVariants}
-            className="section-heading"
-          >
+        {/* Section Heading */}
+        <ScrollReveal direction="up">
+          <h2 id="experience-heading" className="section-heading">
             Professional Experience
-          </motion.h2>
+          </h2>
+        </ScrollReveal>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Center Line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[#2E75B6] to-[#00D4FF]" />
+        {/* Timeline */}
+        <div className="relative">
+          {/* Center Line with Grow Animation */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[#2E75B6] to-[#00D4FF] origin-top"
+          />
 
-            {/* Timeline Items */}
-            <div className="space-y-12">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={exp.id}
-                  variants={itemVariants}
-                  className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-                >
+          {/* Timeline Items */}
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <ScrollReveal
+                key={exp.id}
+                direction={index % 2 === 0 ? "right" : "left"}
+                delay={0.1}
+              >
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                   {/* Timeline Dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#00D4FF] border-4 border-background shadow-lg shadow-cyan-500/50 z-10 hidden md:flex items-center justify-center">
                     <motion.div
@@ -133,11 +112,11 @@ export function Experience() {
                       ))}
                     </ul>
                   </motion.article>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

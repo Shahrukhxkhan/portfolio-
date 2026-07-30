@@ -1,9 +1,9 @@
 import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { projects } from "@/data/projects";
-import { Github, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
 import Tilt from "react-parallax-tilt";
+import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 
 const getFeaturedLabel = (id: string, title: string) => {
   if (id === 'skillloom') return 'SkillLoom';
@@ -13,58 +13,32 @@ const getFeaturedLabel = (id: string, title: string) => {
 };
 
 export function Projects() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
     <section
       id="projects"
-      ref={ref}
       aria-labelledby="projects-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {/* Section Heading */}
-          <motion.h2
-            id="projects-heading"
-            variants={itemVariants}
-            className="section-heading"
-          >
+        {/* Section Heading */}
+        <ScrollReveal direction="up">
+          <h2 id="projects-heading" className="section-heading">
             Key Projects
-          </motion.h2>
+          </h2>
+        </ScrollReveal>
 
-          {/* Featured Projects */}
-          <div className="space-y-16 mb-20">
-            {featuredProjects.map((project, index) => (
-              <motion.article
-                key={project.id}
-                variants={itemVariants}
+        {/* Featured Projects */}
+        <div className="space-y-16 mb-20">
+          {featuredProjects.map((project, index) => (
+            <ScrollReveal
+              key={project.id}
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={0.1}
+            >
+              <article
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? "lg:grid-cols-2 lg:[&>*:first-child]:order-2" : ""
                 }`}
@@ -92,7 +66,7 @@ export function Projects() {
                   </p>
 
                   {project.highlight && (
-                    <div className="p-4 rounded-lg bg-card border border-border">
+                    <div className="p-4 rounded-lg bg-[#111827] border border-[#1E3A5F]">
                       <p className="text-[#00D4FF] font-semibold">
                         {project.highlight}
                       </p>
@@ -102,10 +76,7 @@ export function Projects() {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="tech-tag"
-                      >
+                      <span key={tech} className="tech-tag">
                         {tech}
                       </span>
                     ))}
@@ -180,30 +151,27 @@ export function Projects() {
                     </div>
                   </div>
                 )}
-              </motion.article>
-            ))}
-          </div>
+              </article>
+            </ScrollReveal>
+          ))}
+        </div>
 
-          {/* Other Projects Grid */}
-          <motion.div
-            variants={itemVariants}
-            className="pt-16 border-t border-border"
-          >
+        {/* Other Projects Grid */}
+        <div className="pt-16 border-t border-border">
+          <ScrollReveal direction="up">
             <h3 className="text-2xl font-bold text-foreground mb-8">Other Projects</h3>
+          </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {otherProjects.map((project) => (
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1} delayChildren={0.15}>
+            {otherProjects.map((project) => (
+              <StaggerItem key={project.id} direction="scale">
                 <Tilt
-                  key={project.id}
                   className="h-full"
                   tiltMaxAngleX={10}
                   tiltMaxAngleY={10}
                   scale={1.05}
                 >
-                  <motion.article
-                    variants={itemVariants}
-                    className="h-full p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 cursor-pointer"
-                  >
+                  <article className="h-full p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 cursor-pointer">
                     <div>
                       <div className="flex flex-wrap gap-2 mb-3">
                         {project.badges.map((badge) => (
@@ -247,12 +215,12 @@ export function Projects() {
                         <span className="text-sm">View on GitHub</span>
                       </a>
                     )}
-                  </motion.article>
+                  </article>
                 </Tilt>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
       </div>
     </section>
   );

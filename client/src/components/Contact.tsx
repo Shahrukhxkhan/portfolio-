@@ -1,17 +1,16 @@
 import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Mail, MapPin, Github, Linkedin, Send, Check } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import ScrollReveal from './ScrollReveal';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
 export function Contact() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,25 +19,6 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -102,39 +82,28 @@ export function Contact() {
   return (
     <section
       id="contact"
-      ref={ref}
       aria-labelledby="contact-heading"
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {/* Section Heading */}
-          <motion.h2
-            id="contact-heading"
-            variants={itemVariants}
-            className="section-heading"
-          >
+        {/* Section Heading */}
+        <ScrollReveal direction="up" delay={0}>
+          <h2 id="contact-heading" className="section-heading">
             Get In Touch
-          </motion.h2>
+          </h2>
+        </ScrollReveal>
 
-          <motion.p
-            variants={itemVariants}
-            className="section-subheading"
-          >
+        <ScrollReveal direction="up" delay={0.15}>
+          <p className="section-subheading">
             I'm open to internships, collaborations, and full-time opportunities.
             Let's build something impactful together.
-          </motion.p>
+          </p>
+        </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div
-              variants={itemVariants}
-              className="space-y-8"
-            >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <ScrollReveal direction="left" delay={0.2}>
+            <div className="space-y-8">
               {/* Email */}
               <div
                 className="flex gap-4 cursor-pointer group"
@@ -190,11 +159,12 @@ export function Contact() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
+          </ScrollReveal>
 
-            {/* Contact Form */}
-            <motion.form
-              variants={itemVariants}
+          {/* Contact Form */}
+          <ScrollReveal direction="right" delay={0.2}>
+            <form
               onSubmit={handleSubmit}
               className="space-y-6"
             >
@@ -291,9 +261,9 @@ export function Contact() {
                   </>
                 )}
               </motion.button>
-            </motion.form>
-          </div>
-        </motion.div>
+            </form>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

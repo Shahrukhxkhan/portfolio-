@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export function About() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -43,25 +44,6 @@ export function About() {
     return () => clearInterval(interval);
   }, [inView]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
   return (
     <section
       id="about"
@@ -70,53 +52,46 @@ export function About() {
       className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {/* Section Heading */}
-          <motion.h2
-            id="about-heading"
-            variants={itemVariants}
-            className="section-heading"
-          >
+        {/* Section Heading */}
+        <ScrollReveal direction="up" delay={0}>
+          <h2 id="about-heading" className="section-heading">
             About Me
-          </motion.h2>
+          </h2>
+        </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Text Content */}
-            <motion.div
-              variants={itemVariants}
-              className="space-y-6"
-            >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Text Content */}
+          <div className="space-y-6">
+            <ScrollReveal direction="up" delay={0.1}>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 I'm a Computer Science student at COMSATS University Islamabad, Wah Campus, graduating in 2027. I specialize in building AI-powered full-stack applications that bridge the gap between intelligent systems and real-world usability.
               </p>
+            </ScrollReveal>
 
+            <ScrollReveal direction="up" delay={0.2}>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 My flagship project, SkillLoom, is an AI-driven hiring platform for Pakistan's informal textile workforce — combining biometric verification, smart job matching, and demand heatmaps to connect 15M+ workers with opportunities.
               </p>
+            </ScrollReveal>
 
+            <ScrollReveal direction="up" delay={0.3}>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 I've completed 4 internships across AI/ML Engineering, Python development, and DevOps — including a current role at Pakistan Ordnance Factories (POF), earning a Best Performance Award at DevelopersHub Corporation. I'm passionate about technology that creates genuine social impact.
               </p>
-            </motion.div>
+            </ScrollReveal>
+          </div>
 
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 gap-6"
-            >
-              {[
-                { value: counts.internships, label: "Internships Completed" },
-                { value: `${counts.projects}+`, label: "Projects Built" },
-                { value: counts.clients, label: "Real-World Systems" },
-                { value: counts.specializations, label: "AI/ML Specializations" },
-              ].map((stat, i) => (
+          {/* Stats Grid */}
+          <StaggerContainer className="grid grid-cols-2 gap-6" staggerDelay={0.15} delayChildren={0.2}>
+            {[
+              { value: counts.internships, label: "Internships Completed" },
+              { value: `${counts.projects}+`, label: "Projects Built" },
+              { value: counts.clients, label: "Real-World Systems" },
+              { value: counts.specializations, label: "AI/ML Specializations" },
+            ].map((stat, i) => (
+              <StaggerItem key={i} direction="scale">
                 <motion.div
-                  key={i}
-                  className="p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300"
+                  className="p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 h-full"
                   whileHover={{ scale: 1.05, borderColor: "#00D4FF" }}
                 >
                   <div className="text-3xl md:text-4xl font-bold text-[#00D4FF] mb-2">
@@ -124,10 +99,10 @@ export function About() {
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
       </div>
     </section>
   );
