@@ -4,57 +4,55 @@ import { Link as ScrollLink } from "react-scroll";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { HeroGeometry } from "./three/HeroGeometry";
 import { Suspense } from "react";
+import TypewriterText, { BlinkingCursor } from './TypewriterText';
 
 export function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" as const },
-    },
-  };
-
   return (
     <section id="hero" aria-labelledby="hero-heading" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <motion.div
-            className="z-10"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+          <div className="z-10">
             {/* Tag */}
-            <motion.div variants={itemVariants} className="mb-6">
+            <div className="mb-6">
               <span className="inline-block px-4 py-2 rounded-full bg-[#111827] border border-[#1E3A5F] text-[#00D4FF] text-sm font-mono">
-                &lt; AI & Full-Stack Developer /&gt;
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <TypewriterText 
+                    text="< AI & Full-Stack Developer />" 
+                    delay={0.3}
+                    speed={0.04}
+                  />
+                  <BlinkingCursor delay={1.5} />
+                </div>
               </span>
-            </motion.div>
+            </div>
 
             {/* Main Heading */}
-            <motion.h1
+            <h1
               id="hero-heading"
-              variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4 leading-tight"
             >
-              Muhammad Shahrukh Khan
-            </motion.h1>
+              <div style={{ display: 'block' }}>
+                <TypewriterText 
+                  text="Muhammad" 
+                  delay={1.8}
+                  speed={0.06}
+                />
+              </div>
+              <div style={{ display: 'block' }}>
+                <TypewriterText 
+                  text="Shahrukh Khan" 
+                  delay={2.5}
+                  speed={0.06}
+                />
+                <BlinkingCursor delay={3.5} />
+              </div>
+            </h1>
 
             <motion.p
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3.8, duration: 0.8, ease: 'easeOut' as const }}
               className="text-xl md:text-2xl font-semibold text-[#00D4FF] mb-6"
             >
               AI Developer & Full-Stack Engineer
@@ -62,7 +60,9 @@ export function Hero() {
 
             {/* Subheading */}
             <motion.p
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3.8, duration: 0.8, ease: 'easeOut' as const }}
               className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl"
             >
               AI Developer and Full-Stack Engineer building intelligent machine learning models, scalable web applications, and real-world software solutions.
@@ -70,7 +70,9 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 4.2, duration: 0.8, ease: 'easeOut' as const }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
               <ScrollLink
@@ -109,7 +111,9 @@ export function Hero() {
 
             {/* Social Links */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 4.6, duration: 0.8, ease: 'easeOut' as const }}
               className="flex gap-6"
             >
               <a
@@ -133,14 +137,14 @@ export function Hero() {
                 <Linkedin size={24} />
               </a>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Right Column - 3D Geometry */}
           <motion.div
             className="h-96 lg:h-full min-h-96 relative"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ delay: 1.8, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           >
             <Suspense fallback={<div className="w-full h-full bg-card border border-border rounded-lg" />}>
               <HeroGeometry />

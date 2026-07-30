@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,7 +7,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-
+import Preloader from './components/Preloader';
 
 function Router() {
   return (
@@ -21,6 +21,8 @@ function Router() {
 }
 
 function App() {
+  const [preloaderDone, setPreloaderDone] = useState(false);
+
   useEffect(() => {
     ReactGA.send({ 
       hitType: 'pageview', 
@@ -30,14 +32,19 @@ function App() {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark" switchable>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <>
+      <Preloader onComplete={() => setPreloaderDone(true)} />
+      {preloaderDone && (
+        <ErrorBoundary>
+          <ThemeProvider defaultTheme="dark" switchable>
+            <TooltipProvider>
+              <Toaster />
+              <Router />
+            </TooltipProvider>
+          </ThemeProvider>
+        </ErrorBoundary>
+      )}
+    </>
   );
 }
 
