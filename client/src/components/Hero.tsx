@@ -141,7 +141,8 @@ export function Hero() {
 
           {/* Right Column - 3D Geometry */}
           <motion.div
-            className="h-96 lg:h-full min-h-96 relative"
+            className="w-full h-96 lg:h-[500px] relative"
+            style={{ position: 'relative', zIndex: 20 }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.8, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}

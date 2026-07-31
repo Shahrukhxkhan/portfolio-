@@ -9,44 +9,47 @@ import { Certifications } from "@/components/Certifications";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { ParticleField } from "@/components/three/ParticleField";
+import AuroraBackground from "@/components/AuroraBackground";
 
 export default function Home() {
   return (
-    <div className="relative bg-background text-foreground overflow-hidden">
-      {/* 3D Particle Background */}
-      <Suspense fallback={null}>
-        <ParticleField />
-      </Suspense>
+    <AuroraBackground>
+      <div className="relative text-foreground overflow-hidden">
+        {/* 3D Particle Background */}
+        <Suspense fallback={null}>
+          <ParticleField />
+        </Suspense>
 
-      {/* Navigation */}
-      <Navbar />
+        {/* Navigation */}
+        <Navbar />
 
-      {/* Main Content */}
-      <main id="main-content" className="relative z-10">
-        {/* Hero Section */}
-        <Hero />
+        {/* Main Content */}
+        <main id="main-content" className="relative z-10">
+          {/* Hero Section */}
+          <Hero />
 
-        {/* About Section */}
-        <About />
+          {/* About Section */}
+          <About />
 
-        {/* Skills Section */}
-        <Skills />
+          {/* Skills Section */}
+          <Skills />
 
-        {/* Projects Section */}
-        <Projects />
+          {/* Projects Section */}
+          <Projects />
 
-        {/* Experience Section */}
-        <Experience />
+          {/* Experience Section */}
+          <Experience />
 
-        {/* Certifications Section */}
-        <Certifications />
+          {/* Certifications Section */}
+          <Certifications />
 
-        {/* Contact Section */}
-        <Contact />
-      </main>
+          {/* Contact Section */}
+          <Contact />
+        </main>
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Footer */}
+        <Footer />
+      </div>
+    </AuroraBackground>
   );
 }
