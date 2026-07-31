@@ -1,11 +1,20 @@
-import { useCallback } from 'react';
-import Particles from 'react-tsparticles';
-import { loadSlim } from 'tsparticles-slim';
-import type { Engine } from 'tsparticles-engine';
+import { useCallback, useEffect, useState } from 'react';
+import Particles from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
+import { tsParticles } from '@tsparticles/engine';
+import type { Container } from '@tsparticles/engine';
 
 const NeuralNetwork = () => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    loadSlim(tsParticles).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesLoaded = useCallback(async (container?: Container) => {
+    // loaded
   }, []);
 
   const options: any = {
@@ -22,7 +31,7 @@ const NeuralNetwork = () => {
           enable: true,
           mode: 'push'
         },
-        resize: true
+        resize: { enable: true }
       },
       modes: {
         grab: {
@@ -52,7 +61,8 @@ const NeuralNetwork = () => {
         value: 80,
         density: {
           enable: true,
-          area: 900
+          width: 1920,
+          height: 1080
         }
       },
       color: {
@@ -118,10 +128,12 @@ const NeuralNetwork = () => {
     ]
   };
 
+  if (!init) return null;
+
   return (
     <Particles
       id="neural-network"
-      init={particlesInit}
+      particlesLoaded={particlesLoaded}
       options={options}
       style={{
         position: 'fixed',
