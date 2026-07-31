@@ -8,12 +8,12 @@ interface AuroraBackgroundProps {
 const AuroraBackground = ({ children }: AuroraBackgroundProps) => {
   return (
     <div
+      className="bg-background text-foreground transition-colors duration-500"
       style={{
         position: 'relative',
         width: '100%',
         minHeight: '100vh',
         overflow: 'hidden',
-        backgroundColor: '#0A0F1E',
         willChange: 'transform',
         transform: 'translateZ(0)'
       }}
@@ -169,12 +169,13 @@ const AuroraBackground = ({ children }: AuroraBackgroundProps) => {
         }}
       />
 
-      {/* Vignette overlay — darkens edges for focus */}
+      {/* Vignette overlay — darkens edges for focus dynamically based on theme */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse at center, transparent 40%, rgba(10, 15, 30, 0.6) 100%)',
+          background: 'radial-gradient(ellipse at center, transparent 40%, var(--background) 100%)',
+          opacity: 0.7,
           pointerEvents: 'none',
           zIndex: 1
         }}

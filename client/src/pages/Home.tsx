@@ -8,48 +8,49 @@ import { Experience } from "@/components/Experience";
 import { Certifications } from "@/components/Certifications";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { ParticleField } from "@/components/three/ParticleField";
 import AuroraBackground from "@/components/AuroraBackground";
+import NeuralNetwork from "@/components/NeuralNetwork";
 
 export default function Home() {
   return (
-    <AuroraBackground>
-      <div className="relative text-foreground overflow-hidden">
-        {/* 3D Particle Background */}
-        <Suspense fallback={null}>
-          <ParticleField />
-        </Suspense>
+    <div style={{ position: 'relative' }}>
+      {/* Neural Network particle background */}
+      <NeuralNetwork />
 
-        {/* Navigation */}
-        <Navbar />
+      {/* Aurora background */}
+      <AuroraBackground>
+        <div className="relative text-foreground overflow-hidden">
+          {/* Navigation */}
+          <Navbar />
 
-        {/* Main Content */}
-        <main id="main-content" className="relative z-10">
-          {/* Hero Section */}
-          <Hero />
+          {/* Main Content */}
+          <main id="main-content" className="relative z-10">
+            {/* Hero Section */}
+            <Hero />
 
-          {/* About Section */}
-          <About />
+            {/* About Section */}
+            <About />
 
-          {/* Skills Section */}
-          <Skills />
+            {/* Skills Section */}
+            <Skills />
 
-          {/* Projects Section */}
-          <Projects />
+            {/* Projects Section */}
+            <Projects />
 
-          {/* Experience Section */}
-          <Experience />
+            {/* Experience Section */}
+            <Experience />
 
-          {/* Certifications Section */}
-          <Certifications />
+            {/* Certifications Section */}
+            <Certifications />
 
-          {/* Contact Section */}
-          <Contact />
-        </main>
+            {/* Contact Section */}
+            <Contact />
+          </main>
 
-        {/* Footer */}
-        <Footer />
-      </div>
-    </AuroraBackground>
+          {/* Footer */}
+          <Footer />
+        </div>
+      </AuroraBackground>
+    </div>
   );
 }

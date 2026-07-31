@@ -40,14 +40,17 @@ function IcosahedronMesh() {
     const group = groupRef.current;
     if (!solid || !wire || !group) return;
 
+    const safeDelta = Math.min(delta, 0.03);
+
     // ── Spring scale-in (mass=1, tension=80, friction=20) ──
     const target = 1;
     const spring = springState.current;
     const force = (target - spring.scale) * 80; // tension
-    spring.velocity += force * delta;
-    spring.velocity *= 1 - 20 * delta; // friction damping
-    spring.scale += spring.velocity * delta;
-    group.scale.setScalar(Math.max(0, spring.scale));
+    spring.velocity += force * safeDelta;
+    spring.velocity *= Math.max(0, 1 - 20 * safeDelta); // friction damping
+    spring.scale += spring.velocity * safeDelta;
+    const currentScale = isNaN(spring.scale) || spring.scale <= 0 ? 1 : spring.scale;
+    group.scale.setScalar(currentScale);
 
     // ── Continuous auto-rotation ──
     autoRot.current.x += 0.003;
@@ -69,7 +72,7 @@ function IcosahedronMesh() {
   });
 
   return (
-    <group ref={groupRef} scale={0}>
+    <group ref={groupRef} scale={1}>
       {/* Dark semi-transparent solid fill */}
       <mesh ref={solidRef} geometry={geo}>
         <meshPhongMaterial

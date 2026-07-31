@@ -41,7 +41,7 @@ export function Navbar() {
         aria-label="Main Navigation"
         className={`transition-all duration-300 ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border"
+            ? "bg-card/85 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -88,7 +88,7 @@ export function Navbar() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#2E75B6] to-[#00D4FF] group-hover:w-full transition-all duration-300" />
                 </ScrollLink>
               ))}
-              
+
               {/* Theme Toggle Button */}
               {toggleTheme && (
                 <button
@@ -101,7 +101,7 @@ export function Navbar() {
               )}
             </div>
 
-            {/* Mobile Actions (Theme Toggle + Hamburger) */}
+            {/* Mobile Actions */}
             <div className="flex items-center gap-4 md:hidden">
               {toggleTheme && (
                 <button
