@@ -28,7 +28,7 @@ export function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="relative py-20 md:py-32 overflow-hidden"
+      className="relative pt-10 md:pt-12 pb-10 md:pb-12 overflow-hidden"
     >
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}

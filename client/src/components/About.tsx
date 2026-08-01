@@ -49,7 +49,7 @@ export function About() {
       id="about"
       ref={ref}
       aria-labelledby="about-heading"
-      className="relative py-20 md:py-32 overflow-hidden"
+      className="relative pt-16 md:pt-24 pb-10 md:pb-12 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}

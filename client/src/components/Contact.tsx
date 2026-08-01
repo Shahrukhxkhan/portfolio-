@@ -83,7 +83,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative py-20 md:py-32 overflow-hidden"
+      className="relative pt-10 md:pt-12 pb-20 md:pb-28 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
