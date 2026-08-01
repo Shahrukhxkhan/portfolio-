@@ -82,7 +82,8 @@ export function Navbar() {
                   smooth={true}
                   duration={500}
                   aria-label={`Navigate to ${link.label} section`}
-                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm font-medium relative group"
+                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm font-medium relative group font-body"
+                  style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 500 }}
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#2E75B6] to-[#00D4FF] group-hover:w-full transition-all duration-300" />
@@ -140,7 +141,8 @@ export function Navbar() {
                     smooth={true}
                     duration={500}
                     aria-label={`Navigate to ${link.label} section`}
-                    className="block text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm font-medium"
+                    className="block text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm font-medium font-body"
+                    style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 500 }}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}

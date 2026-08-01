@@ -30,7 +30,13 @@ export function Hero() {
             {/* Main Heading */}
             <h1
               id="hero-heading"
-              className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4 leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold text-foreground mb-4"
+              style={{
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.1
+              }}
             >
               <div style={{ display: 'block' }}>
                 <TypewriterText 

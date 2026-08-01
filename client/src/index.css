@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-heading: Montserrat, ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -111,6 +113,8 @@
   --sidebar-ring: #00D4FF;
 }
 
+/* ===== MINIMALIST TYPOGRAPHY THEME ===== */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -139,21 +143,44 @@
     background: linear-gradient(to bottom, #00D4FF, #2E75B6);
   }
   
+  /* Base body font */
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.7;
     background-color: #0A0F1E;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
+  /* All headings use Montserrat */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
     font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
   }
-  
-  code, pre {
-    font-family: 'JetBrains Mono', monospace;
+
+  /* Body text elements */
+  p, span, li, a, label, input, textarea, button {
+    font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.7;
+  }
+
+  /* Utility classes */
+  .font-heading {
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Code/tech tags keep monospace */
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace !important;
   }
   
   button:not(:disabled),
@@ -213,13 +240,16 @@
   
   .tech-tag {
     @apply px-3 py-1 rounded-full text-xs font-mono bg-card border border-border text-[#00D4FF] hover:border-[#00D4FF] hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300;
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace !important;
   }
   
   .section-heading {
-    @apply text-4xl md:text-5xl font-bold text-foreground mb-4;
+    @apply text-4xl md:text-5xl font-bold font-heading tracking-tight text-foreground mb-4;
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
   }
   
   .section-subheading {
-    @apply text-lg text-muted-foreground mb-12;
+    @apply text-lg text-muted-foreground mb-12 font-body;
+    font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
   }
 }
