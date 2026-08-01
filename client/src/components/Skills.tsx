@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { skillCategories, topSkills } from "@/data/skills";
+import { skillCategories } from "@/data/skills";
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export function Skills() {
@@ -50,33 +50,6 @@ export function Skills() {
             </div>
           ))}
         </div>
-
-        {/* Skill Proficiency Section */}
-        <ScrollReveal direction="up" delay={0.2} className="mt-16 pt-16 border-t border-border">
-          <h3 className="text-xl font-semibold text-foreground mb-8">
-            Proficiency Levels
-          </h3>
-
-          <div className="space-y-6">
-            {topSkills.map((skill) => (
-              <div key={skill.name} className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-foreground font-medium">{skill.name}</span>
-                  <span className="text-[#00D4FF] text-sm">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-card rounded-full overflow-hidden border border-border">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-[#2E75B6] to-[#00D4FF]"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
