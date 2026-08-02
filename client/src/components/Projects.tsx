@@ -101,7 +101,47 @@ export function Projects() {
                 </div>
 
                 {/* Project Visual */}
-                {project.id === "pmnh-museum" ? (
+                {project.id === "skillloom" ? (
+                  <div
+                    className="relative group overflow-hidden rounded-xl border border-border"
+                    style={{ width: "100%", aspectRatio: "16/9" }}
+                  >
+                    {/* Actual dashboard screenshot */}
+                    <img
+                      src="/images/skillloom.png"
+                      alt="SkillLoom AI-Powered Textile Workforce Platform Admin Dashboard interface showing workforce telemetry and active jobs"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    {/* Gradient overlay — bottom fade */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+
+                    {/* Floating label — top left */}
+                    <div className="absolute top-3 left-3 bg-background/85 backdrop-blur-sm border border-[#2E75B6]/50 rounded-lg px-3 py-1">
+                      <span className="text-[#00D4FF] text-xs font-mono">
+                        ⚡ AI Workforce Dashboard
+                      </span>
+                    </div>
+
+                    {/* Stats overlay — bottom */}
+                    <div className="absolute bottom-3 left-3 right-3 flex gap-3">
+                      <div className="bg-background/85 backdrop-blur-sm border border-border rounded-lg px-3 py-1 text-center">
+                        <div className="text-[#00D4FF] text-sm font-bold">19</div>
+                        <div className="text-muted-foreground text-xs">Workers</div>
+                      </div>
+                      <div className="bg-background/85 backdrop-blur-sm border border-border rounded-lg px-3 py-1 text-center">
+                        <div className="text-[#00D4FF] text-sm font-bold">5</div>
+                        <div className="text-muted-foreground text-xs">Employers</div>
+                      </div>
+                      <div className="bg-background/85 backdrop-blur-sm border border-border rounded-lg px-3 py-1 text-center">
+                        <div className="text-[#00D4FF] text-sm font-bold">8</div>
+                        <div className="text-muted-foreground text-xs">Active Jobs</div>
+                      </div>
+                    </div>
+                  </div>
+                ) : project.id === "pmnh-museum" ? (
                   <div
                     className="relative group overflow-hidden rounded-xl border border-border"
                     style={{ width: "100%", aspectRatio: "16/9" }}
@@ -145,7 +185,6 @@ export function Projects() {
                   <div className="h-80 rounded-lg bg-gradient-to-br from-card to-background border border-border flex items-center justify-center overflow-hidden">
                     <div className="w-full h-full flex items-center justify-center">
                       <div className="text-6xl opacity-20">
-                        {project.id === "skillloom" && "🎯"}
                         {project.id === "code-graveyard" && "🪦"}
                       </div>
                     </div>
