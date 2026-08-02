@@ -181,11 +181,51 @@ export function Projects() {
                       </div>
                     </div>
                   </div>
+                ) : project.id === "code-graveyard" ? (
+                  <div
+                    className="relative group overflow-hidden rounded-xl border border-border"
+                    style={{ width: "100%", aspectRatio: "16/9" }}
+                  >
+                    {/* Actual Code Graveyard screenshot */}
+                    <img
+                      src="/images/code-graveyard.png"
+                      alt="Code Graveyard - The Developer's Post-Mortem Platform interface showing project statistics"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    {/* Gradient overlay — bottom fade */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+
+                    {/* Floating label — top left */}
+                    <div className="absolute top-3 left-3 bg-background/85 backdrop-blur-sm border border-[#9333EA]/50 rounded-lg px-3 py-1">
+                      <span className="text-[#A855F7] text-xs font-mono">
+                        ⚡ Developer Post-Mortem Platform
+                      </span>
+                    </div>
+
+                    {/* Stats overlay — bottom */}
+                    <div className="absolute bottom-3 left-3 right-3 flex gap-3">
+                      <div className="bg-background/85 backdrop-blur-sm border border-border rounded-lg px-3 py-1 text-center">
+                        <div className="text-[#A855F7] text-sm font-bold">847</div>
+                        <div className="text-muted-foreground text-xs">Projects Buried</div>
+                      </div>
+                      <div className="bg-background/85 backdrop-blur-sm border border-border rounded-lg px-3 py-1 text-center">
+                        <div className="text-[#A855F7] text-sm font-bold">2,341</div>
+                        <div className="text-muted-foreground text-xs">Snippets Salvaged</div>
+                      </div>
+                      <div className="bg-background/85 backdrop-blur-sm border border-border rounded-lg px-3 py-1 text-center">
+                        <div className="text-[#A855F7] text-sm font-bold">156</div>
+                        <div className="text-muted-foreground text-xs">Projects Adopted</div>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div className="h-80 rounded-lg bg-gradient-to-br from-card to-background border border-border flex items-center justify-center overflow-hidden">
                     <div className="w-full h-full flex items-center justify-center">
                       <div className="text-6xl opacity-20">
-                        {project.id === "code-graveyard" && "🪦"}
+                        📁
                       </div>
                     </div>
                   </div>
