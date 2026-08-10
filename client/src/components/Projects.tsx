@@ -66,7 +66,7 @@ export function Projects() {
                   </p>
 
                   {project.highlight && (
-                    <div className="p-4 rounded-lg bg-[#111827] border border-[#1E3A5F]">
+                    <div className="p-4 rounded-lg bg-card border border-border">
                       <p className="text-[#00D4FF] font-semibold">
                         {project.highlight}
                       </p>

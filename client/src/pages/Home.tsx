@@ -12,7 +12,7 @@ import NeuralNetwork from "@/components/NeuralNetwork";
 
 export default function Home() {
   return (
-    <div style={{ position: 'relative', backgroundColor: '#0A0F1E', minHeight: '100vh' }}>
+    <div className="relative min-h-screen bg-background text-foreground transition-colors duration-300">
       {/* Neural Network particle background */}
       <NeuralNetwork />
 

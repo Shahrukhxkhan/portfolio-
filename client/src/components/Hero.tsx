@@ -15,7 +15,7 @@ export function Hero() {
           <div className="z-10">
             {/* Tag */}
             <div className="mb-6">
-              <span className="inline-block px-4 py-2 rounded-full bg-[#111827] border border-[#1E3A5F] text-[#00D4FF] text-sm font-mono">
+              <span className="inline-block px-4 py-2 rounded-full bg-card border border-border text-[#00D4FF] text-sm font-mono">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <TypewriterText 
                     text="< AI & Full-Stack Developer />" 
