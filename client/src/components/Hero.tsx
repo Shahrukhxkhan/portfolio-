@@ -153,7 +153,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.8, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           >
-            <Suspense fallback={<div className="w-full h-full bg-card border border-border rounded-lg" />}>
+            <Suspense fallback={<div className="w-full h-full bg-transparent" />}>
               <HeroGeometry />
             </Suspense>
           </motion.div>
