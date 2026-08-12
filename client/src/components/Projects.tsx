@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { projects, Project } from "@/data/projects";
-import { Github, Info, Layers } from "lucide-react";
+import { Github, Info, Layers, Zap } from "lucide-react";
 import Tilt from "react-parallax-tilt";
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 import { ProjectModal } from "./ProjectModal";
@@ -195,8 +195,8 @@ export function Projects() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                         <div className="absolute top-3 left-3 bg-background/85 backdrop-blur-sm border border-[#2E75B6]/50 rounded-lg px-3 py-1">
-                          <span className="text-[#00D4FF] text-xs font-mono flex items-center gap-1">
-                            ⚡ AI Workforce Dashboard
+                          <span className="text-[#00D4FF] text-xs font-mono flex items-center gap-1.5">
+                            <Zap className="w-3.5 h-3.5 text-[#00D4FF]" /> AI Workforce Dashboard
                           </span>
                         </div>
                         <div className="absolute bottom-3 left-3 right-3 flex gap-3">
@@ -228,8 +228,8 @@ export function Projects() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                         <div className="absolute top-3 left-3 bg-background/85 backdrop-blur-sm border border-[#2E75B6]/50 rounded-lg px-3 py-1">
-                          <span className="text-[#00D4FF] text-xs font-mono">
-                            ⚡ Live Admin Dashboard
+                          <span className="text-[#00D4FF] text-xs font-mono flex items-center gap-1.5">
+                            <Zap className="w-3.5 h-3.5 text-[#00D4FF]" /> Live Admin Dashboard
                           </span>
                         </div>
                         <div className="absolute bottom-3 left-3 right-3 flex gap-3">
@@ -261,8 +261,8 @@ export function Projects() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                         <div className="absolute top-3 left-3 bg-background/85 backdrop-blur-sm border border-[#9333EA]/50 rounded-lg px-3 py-1">
-                          <span className="text-[#A855F7] text-xs font-mono">
-                            ⚡ Developer Post-Mortem Platform
+                          <span className="text-[#A855F7] text-xs font-mono flex items-center gap-1.5">
+                            <Zap className="w-3.5 h-3.5 text-[#A855F7]" /> Developer Post-Mortem Platform
                           </span>
                         </div>
                         <div className="absolute bottom-3 left-3 right-3 flex gap-3">
