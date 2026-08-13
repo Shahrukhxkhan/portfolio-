@@ -110,7 +110,7 @@ export function Footer() {
               © {currentYear} Muhammad Shahrukh Khan. All rights reserved.
             </p>
             <p>
-              Crafted with <span className="text-[#00D4FF]">✨</span> using React, Three.js & Framer Motion
+              Crafted with passion using React, Three.js & Framer Motion
             </p>
           </div>
         </div>

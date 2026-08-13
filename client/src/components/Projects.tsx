@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { projects, Project } from "@/data/projects";
-import { Github, Info, Layers, Zap } from "lucide-react";
+import { Github, Info, Layers, Zap, Folder } from "lucide-react";
 import Tilt from "react-parallax-tilt";
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 import { ProjectModal } from "./ProjectModal";
@@ -283,9 +283,7 @@ export function Projects() {
                     ) : (
                       <div className="h-80 rounded-lg bg-gradient-to-br from-card to-background border border-border flex items-center justify-center overflow-hidden hover:border-[#00D4FF] transition-all">
                         <div className="w-full h-full flex items-center justify-center">
-                          <div className="text-6xl opacity-20">
-                            📁
-                          </div>
+                          <Folder className="w-16 h-16 opacity-20 text-muted-foreground" />
                         </div>
                       </div>
                     )}
