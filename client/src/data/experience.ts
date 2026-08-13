@@ -15,7 +15,7 @@ export const experiences: Experience[] = [
     role: "AI/ML & DevOps Intern",
     company: "Pakistan Ordnance Factories (POF)",
     duration: "July 2026 – Present",
-    badge: "🟢 Currently Active",
+    badge: "Currently Active",
     badgeType: "green",
     description: [
       "Applying AI/ML and DevOps practices in a government defense sector environment",
@@ -29,7 +29,7 @@ export const experiences: Experience[] = [
     role: "AI & ML Engineering Intern",
     company: "DevelopersHub Corporation",
     duration: "June 2025 – July 2025",
-    badge: "🏆 Best Performance Award",
+    badge: "Best Performance Award",
     badgeType: "gold",
     description: [
       "Awarded Best Performance recognition for outstanding contributions",
@@ -55,7 +55,7 @@ export const experiences: Experience[] = [
     role: "Python Programming Intern",
     company: "CodeAlpha",
     duration: "June 2025",
-    badge: "📄 Letter of Recommendation",
+    badge: "Letter of Recommendation",
     badgeType: "gold",
     description: [
       "Received Letter of Recommendation for excellent analytical skills",

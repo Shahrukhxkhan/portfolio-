@@ -14,7 +14,7 @@ export const certifications: Certification[] = [
     name: "AI/ML & DevOps Internship",
     issuer: "Pakistan Ordnance Factories (POF)",
     year: 2026,
-    badge: "🟢 Currently Active",
+    badge: "Currently Active",
     badgeType: "green",
   },
   {
