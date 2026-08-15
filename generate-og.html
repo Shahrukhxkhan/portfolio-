@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: #0A0F1E;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 60px 80px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .left { flex: 1; }
+  .tag { color: #00D4FF; font-size: 18px; font-family: monospace; margin-bottom: 20px; }
+  .name { color: #FFFFFF; font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+  .role { color: #2E75B6; font-size: 22px; font-weight: 600; margin-bottom: 30px; }
+  .skills { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .skill { background: #111827; border: 1px solid #1E3A5F; color: #8892A4; padding: 6px 14px; border-radius: 20px; font-size: 14px; }
+  .url { color: #00D4FF; font-size: 16px; font-family: monospace; }
+  .right { width: 200px; height: 200px; border: 2px solid #2E75B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .initials { color: #00D4FF; font-size: 64px; font-weight: 800; }
+  .border-accent { position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, #00D4FF, #2E75B6); }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="border-accent"></div>
+  <div class="left">
+    <div class="tag">&lt; AI &amp; Full-Stack Developer /&gt;</div>
+    <div class="name">Muhammad<br>Shahrukh Khan</div>
+    <div class="role">AI Developer · Full-Stack Engineer</div>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">FastAPI</span>
+      <span class="skill">Flutter</span>
+      <span class="skill">React.js</span>
+      <span class="skill">ML/AI</span>
+    </div>
+    <div class="url">shahrukhxkhan.vercel.app</div>
+  </div>
+  <div class="right">
+    <div class="initials">MSK</div>
+  </div>
+</body>
+</html>
