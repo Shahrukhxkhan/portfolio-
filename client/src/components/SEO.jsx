@@ -1,22 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 
-interface SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  siteUrl?: string;
-  fullName?: string;
-  noIndex?: boolean;
-}
+const SEO = () => {
+  const siteUrl = 'https://shahrukhxkhan.vercel.app';
+  const fullName = 'Muhammad Shahrukh Khan';
+  const title = 'Muhammad Shahrukh Khan — AI Developer & Full-Stack Engineer';
+  const description = 'Final-year CS student at COMSATS University specializing in AI/ML engineering and full-stack development. Built SkillLoom — an AI-powered hiring platform for Pakistan\'s textile workforce. 4 internships including Pakistan Ordnance Factories.';
+  const keywords = 'Muhammad Shahrukh Khan, AI Developer Pakistan, Full-Stack Engineer Pakistan, ML Engineer Pakistan, COMSATS University, SkillLoom, FastAPI developer, Flutter developer, React developer, Python developer, AI ML internship Pakistan, software engineer Wah Cantt, shahrukhxkhan';
 
-const SEO = ({
-  siteUrl = 'https://shahrukhxkhan.vercel.app',
-  fullName = 'Muhammad Shahrukh Khan',
-  title = 'Muhammad Shahrukh Khan — AI Developer & Full-Stack Engineer',
-  description = 'Final-year CS student at COMSATS University specializing in AI/ML engineering and full-stack development. Built SkillLoom — an AI-powered hiring platform for Pakistan\'s textile workforce. 4 internships including Pakistan Ordnance Factories.',
-  keywords = 'Muhammad Shahrukh Khan, AI Developer Pakistan, Full-Stack Engineer Pakistan, ML Engineer Pakistan, COMSATS University, SkillLoom, FastAPI developer, Flutter developer, React developer, Python developer, AI ML internship Pakistan, software engineer Wah Cantt, shahrukhxkhan',
-  noIndex = false,
-}: SEOProps) => {
   return (
     <Helmet>
       {/* ===== PRIMARY META TAGS ===== */}
@@ -25,7 +15,7 @@ const SEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={fullName} />
-      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+      <meta name="robots" content="index, follow" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       <meta name="theme-color" content="#0A0F1E" />
