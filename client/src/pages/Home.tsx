@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -13,6 +14,8 @@ import NeuralNetwork from "@/components/NeuralNetwork";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground transition-colors duration-300">
+      <SEO />
+
       {/* Neural Network particle background */}
       <NeuralNetwork />
 
