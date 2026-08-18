@@ -3,13 +3,25 @@ import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { HeroGeometry } from "./three/HeroGeometry";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import TypewriterText, { BlinkingCursor } from './TypewriterText';
+
+const ContactCanvas = lazy(() => import('./three/ContactCanvas'));
 
 export function Hero() {
   return (
     <section id="hero" aria-labelledby="hero-heading" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      {/* Ambient CSS Radial Glows */}
+      <div className="absolute top-10 -left-20 w-96 h-96 rounded-full bg-cyan-500/15 blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 -right-20 w-[32rem] h-[32rem] rounded-full bg-sky-400/15 blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full bg-cyan-400/10 blur-[140px] pointer-events-none -z-10" />
+
+      {/* SparseParticleMesh 3D Ambient Canvas */}
+      <Suspense fallback={null}>
+        <ContactCanvas />
+      </Suspense>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <div className="z-10">

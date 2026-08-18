@@ -1,10 +1,12 @@
 import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, Suspense, lazy } from "react";
 import { Mail, MapPin, Github, Linkedin, Send, Check } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
 import ScrollReveal from './ScrollReveal';
+
+const ContactCanvas = lazy(() => import('./three/ContactCanvas'));
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
@@ -85,7 +87,17 @@ export function Contact() {
       aria-labelledby="contact-heading"
       className="relative pt-10 md:pt-12 pb-20 md:pb-28 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Ambient CSS Radial Glows */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-cyan-500/15 blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 -right-20 w-[30rem] h-[30rem] rounded-full bg-sky-400/15 blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full bg-cyan-400/10 blur-[140px] pointer-events-none -z-10" />
+
+      {/* SparseParticleMesh 3D Ambient Canvas */}
+      <Suspense fallback={null}>
+        <ContactCanvas />
+      </Suspense>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <ScrollReveal direction="up" delay={0}>
           <h2 id="contact-heading" className="section-heading">
