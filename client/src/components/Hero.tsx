@@ -10,11 +10,11 @@ const ContactCanvas = lazy(() => import('./three/ContactCanvas'));
 
 export function Hero() {
   return (
-    <section id="hero" aria-labelledby="hero-heading" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section id="hero" aria-labelledby="hero-heading" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden z-0">
       {/* Ambient CSS Radial Glows */}
-      <div className="absolute top-10 -left-20 w-96 h-96 rounded-full bg-cyan-500/15 blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 -right-20 w-[32rem] h-[32rem] rounded-full bg-sky-400/15 blur-[150px] pointer-events-none -z-10" />
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full bg-cyan-400/10 blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-10 -left-20 w-[30rem] h-[30rem] rounded-full bg-cyan-500/25 blur-[140px] pointer-events-none z-0" />
+      <div className="absolute bottom-10 -right-20 w-[36rem] h-[36rem] rounded-full bg-sky-400/25 blur-[150px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full bg-cyan-400/20 blur-[140px] pointer-events-none z-0" />
 
       {/* SparseParticleMesh 3D Ambient Canvas */}
       <Suspense fallback={null}>
