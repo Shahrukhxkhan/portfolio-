@@ -30,7 +30,7 @@ export function Hero() {
               <span className="inline-block px-4 py-2 rounded-full bg-card border border-border text-[#00D4FF] text-sm font-mono">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <TypewriterText 
-                    text="< AI & Full-Stack Developer />" 
+                    text="< AI/ML & Full-Stack Engineer />" 
                     delay={0.3}
                     speed={0.04}
                   />
@@ -73,7 +73,7 @@ export function Hero() {
               transition={{ delay: 3.8, duration: 0.8, ease: 'easeOut' as const }}
               className="text-xl md:text-2xl font-semibold text-[#00D4FF] mb-6"
             >
-              AI Developer & Full-Stack Engineer
+              AI/ML & Full-Stack Engineer
             </motion.p>
 
             {/* Subheading */}
@@ -83,7 +83,7 @@ export function Hero() {
               transition={{ delay: 3.8, duration: 0.8, ease: 'easeOut' as const }}
               className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl"
             >
-              AI Developer and Full-Stack Engineer building intelligent machine learning models, scalable web applications, and real-world software solutions.
+              AI/ML and Full-Stack Engineer building intelligent machine learning models, scalable web applications, and real-world software solutions.
             </motion.p>
 
             {/* CTA Buttons */}

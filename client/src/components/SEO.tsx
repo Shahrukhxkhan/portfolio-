@@ -12,7 +12,7 @@ interface SEOProps {
 const SEO = ({
   siteUrl = 'https://shahrukhxkhan.vercel.app',
   fullName = 'Muhammad Shahrukh Khan',
-  title = 'Muhammad Shahrukh Khan — AI Developer & Full-Stack Engineer',
+  title = 'Muhammad Shahrukh Khan — AI/ML & Full-Stack Engineer',
   description = 'Final-year CS student at COMSATS University specializing in AI/ML engineering and full-stack development. Built SkillLoom — an AI-powered hiring platform for Pakistan\'s textile workforce. 4 internships including Pakistan Ordnance Factories.',
   keywords = 'Muhammad Shahrukh Khan, AI Developer Pakistan, Full-Stack Engineer Pakistan, ML Engineer Pakistan, COMSATS University, SkillLoom, FastAPI developer, Flutter developer, React developer, Python developer, AI ML internship Pakistan, software engineer Wah Cantt, shahrukhxkhan',
   noIndex = false,
@@ -58,7 +58,7 @@ const SEO = ({
           "name": fullName,
           "url": siteUrl,
           "image": `${siteUrl}/og-image.png`,
-          "jobTitle": "AI Developer & Full-Stack Engineer",
+          "jobTitle": "AI/ML & Full-Stack Engineer",
           "description": description,
           "email": "shahrukh032003@gmail.com",
           "address": {
