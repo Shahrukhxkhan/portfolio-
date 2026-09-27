@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { usePerformanceMode } from "@/hooks/usePerformanceMode";
 
 interface SparseParticleMeshProps {
   count?: number;
@@ -161,21 +162,57 @@ function SparseParticleMesh({ count = 200 }: SparseParticleMeshProps) {
 }
 
 export function ContactCanvas() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const { reducedMotion, isLowPowerOrMobile } = usePerformanceMode();
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // If user explicitly asks for reduced motion, render an ultra-light ambient glow instead of 3D loops
+  if (reducedMotion) {
+    return (
+      <div
+        ref={containerRef}
+        className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.15),transparent_70%)]"
+        aria-hidden="true"
+      />
+    );
+  }
+
   return (
     <div
+      ref={containerRef}
       className="absolute inset-0 pointer-events-none overflow-hidden z-0"
       aria-hidden="true"
     >
-      <Canvas
-        camera={{ position: [0, 0, 18], fov: 60 }}
-        style={{ background: "transparent" }}
-        gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
-      >
-        <ambientLight intensity={0.8} />
-        <SparseParticleMesh count={200} />
-      </Canvas>
+      {isVisible && (
+        <Canvas
+          frameloop={isVisible ? "always" : "never"}
+          camera={{ position: [0, 0, 18], fov: 60 }}
+          style={{ background: "transparent" }}
+          gl={{ alpha: true, antialias: !isLowPowerOrMobile, powerPreference: "high-performance" }}
+          dpr={isLowPowerOrMobile ? [1, 1.25] : [1, 2]}
+        >
+          <ambientLight intensity={0.8} />
+          <SparseParticleMesh count={isLowPowerOrMobile ? 75 : 180} />
+        </Canvas>
+      )}
     </div>
   );
 }
 
 export default ContactCanvas;
+

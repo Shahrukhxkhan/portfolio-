@@ -3,9 +3,11 @@ import Particles from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import { tsParticles } from '@tsparticles/engine';
 import type { Container } from '@tsparticles/engine';
+import { usePerformanceMode } from '@/hooks/usePerformanceMode';
 
 const NeuralNetwork = () => {
   const [init, setInit] = useState(false);
+  const { reducedMotion, isLowPowerOrMobile } = usePerformanceMode();
 
   useEffect(() => {
     loadSlim(tsParticles).then(() => {
@@ -20,15 +22,15 @@ const NeuralNetwork = () => {
   const options: any = {
     fullScreen: { enable: true, zIndex: 0 },
     background: { color: { value: 'transparent' } },
-    fpsLimit: 60,
+    fpsLimit: isLowPowerOrMobile ? 30 : 60,
     interactivity: {
       events: {
         onHover: {
-          enable: true,
+          enable: !isLowPowerOrMobile,
           mode: ['grab', 'bubble']
         },
         onClick: {
-          enable: true,
+          enable: !isLowPowerOrMobile,
           mode: 'push'
         },
         resize: { enable: true }
@@ -48,7 +50,7 @@ const NeuralNetwork = () => {
           opacity: 0.8
         },
         push: {
-          quantity: 3
+          quantity: 2
         },
         repulse: {
           distance: 150,
@@ -58,7 +60,7 @@ const NeuralNetwork = () => {
     },
     particles: {
       number: {
-        value: 80,
+        value: isLowPowerOrMobile ? 35 : 75,
         density: {
           enable: true,
           width: 1920,
@@ -74,22 +76,22 @@ const NeuralNetwork = () => {
       opacity: {
         value: { min: 0.2, max: 0.7 },
         animation: {
-          enable: true,
+          enable: !isLowPowerOrMobile,
           speed: 0.8,
           sync: false
         }
       },
       size: {
-        value: { min: 1.5, max: 4 },
+        value: { min: 1.5, max: 3.5 },
         animation: {
-          enable: true,
-          speed: 1.5,
+          enable: !isLowPowerOrMobile,
+          speed: 1.2,
           sync: false
         }
       },
       links: {
         enable: true,
-        distance: 140,
+        distance: isLowPowerOrMobile ? 110 : 140,
         color: '#2E75B6',
         opacity: 0.25,
         width: 1,
@@ -99,7 +101,7 @@ const NeuralNetwork = () => {
       },
       move: {
         enable: true,
-        speed: { min: 0.3, max: 1.2 },
+        speed: { min: 0.2, max: isLowPowerOrMobile ? 0.6 : 1.0 },
         direction: 'none',
         random: true,
         straight: false,
@@ -108,27 +110,27 @@ const NeuralNetwork = () => {
         }
       },
       shadow: {
-        enable: true,
+        enable: !isLowPowerOrMobile,
         color: '#00D4FF',
         blur: 4
       }
     },
-    detectRetina: true,
+    detectRetina: !isLowPowerOrMobile,
     responsive: [
       {
         maxWidth: 768,
         options: {
           particles: {
-            number: { value: 40 },
-            links: { distance: 100 },
-            move: { speed: { min: 0.2, max: 0.8 } }
+            number: { value: 25 },
+            links: { distance: 90 },
+            move: { speed: { min: 0.2, max: 0.5 } }
           }
         }
       }
     ]
   };
 
-  if (!init) return null;
+  if (!init || reducedMotion) return null;
 
   return (
     <Particles
@@ -149,3 +151,4 @@ const NeuralNetwork = () => {
 };
 
 export default NeuralNetwork;
+

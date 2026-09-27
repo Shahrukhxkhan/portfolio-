@@ -32,8 +32,10 @@ export function Navbar() {
     { label: "Projects", to: "projects" },
     { label: "Experience", to: "experience" },
     { label: "Certifications", to: "certifications" },
+    { label: "Blog", to: "blog" },
     { label: "Contact", to: "contact" },
   ];
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">

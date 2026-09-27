@@ -7,6 +7,7 @@ import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Experience } from "@/components/Experience";
 import { Certifications } from "@/components/Certifications";
+import { Blog } from "@/components/Blog";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -43,9 +44,13 @@ export default function Home() {
           {/* Certifications Section */}
           <Certifications />
 
+          {/* Blog & Engineering Insights */}
+          <Blog />
+
           {/* Contact Section */}
           <Contact />
         </main>
+
 
         {/* Footer */}
         <Footer />

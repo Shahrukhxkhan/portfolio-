@@ -1,0 +1,24 @@
+{
+  "name": "Muhammad Shahrukh Khan — Portfolio",
+  "short_name": "MSK Portfolio",
+  "description": "AI/ML and Full-Stack Engineer Portfolio of Muhammad Shahrukh Khan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0F1E",
+  "theme_color": "#0A0F1E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology", "artificial-intelligence"]
+}

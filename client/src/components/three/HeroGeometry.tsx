@@ -2,6 +2,7 @@ import { useRef, useEffect, useMemo, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
+import { usePerformanceMode } from "@/hooks/usePerformanceMode";
 
 // ─── Floating Node Particles Cloud ───────────────────────────────────────────
 
@@ -212,8 +213,40 @@ function FuturisticCore() {
 // ─── Canvas Wrapper Component ──────────────────────────────────────────────────
 
 export function HeroGeometry() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const { reducedMotion, isLowPowerOrMobile } = usePerformanceMode();
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  if (reducedMotion) {
+    return (
+      <div
+        ref={containerRef}
+        aria-hidden="true"
+        className="w-full h-full relative flex items-center justify-center select-none opacity-80"
+      >
+        <div className="w-48 h-48 rounded-full border border-cyan-400/30 bg-cyan-500/10 shadow-[0_0_50px_rgba(0,212,255,0.2)]" />
+      </div>
+    );
+  }
+
   return (
     <div
+      ref={containerRef}
       aria-hidden="true"
       className="w-full h-full relative cursor-grab active:cursor-grabbing select-none"
       title="Click and hold to charge up 3D energy core"
@@ -224,33 +257,40 @@ export function HeroGeometry() {
           "radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0) 68%)",
       }}
     >
-      <Canvas
-        camera={{ position: [0, 0, 6.2], fov: 45 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-        style={{ background: "transparent" }}
-      >
-        {/* Dynamic Lighting */}
-        <ambientLight intensity={0.6} />
-        <pointLight position={[10, 10, 10]} intensity={2.0} color="#00D4FF" />
-        <pointLight position={[-10, -10, -5]} intensity={1.4} color="#2E75B6" />
-        <directionalLight position={[0, 5, 5]} intensity={0.8} color="#FFFFFF" />
+      {isVisible && (
+        <Canvas
+          frameloop={isVisible ? "always" : "never"}
+          camera={{ position: [0, 0, 6.2], fov: 45 }}
+          gl={{ antialias: !isLowPowerOrMobile, alpha: true, powerPreference: "high-performance" }}
+          dpr={isLowPowerOrMobile ? [1, 1.25] : [1, 2]}
+          style={{ background: "transparent" }}
+        >
+          {/* Dynamic Lighting */}
+          <ambientLight intensity={0.6} />
+          <pointLight position={[10, 10, 10]} intensity={2.0} color="#00D4FF" />
+          <pointLight position={[-10, -10, -5]} intensity={1.4} color="#2E75B6" />
+          <directionalLight position={[0, 5, 5]} intensity={0.8} color="#FFFFFF" />
 
-        {/* Floating Particles Cloud */}
-        <ParticleCloud />
+          {/* Floating Particles Cloud */}
+          <ParticleCloud />
 
-        {/* 3D Cybernetic Core */}
-        <FuturisticCore />
+          {/* 3D Cybernetic Core */}
+          <FuturisticCore />
 
-        {/* Post-processing Bloom Glow with transparent clear */}
-        <EffectComposer enableNormalPass={false} multisampling={0}>
-          <Bloom
-            intensity={1.2}
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.85}
-          />
-        </EffectComposer>
-      </Canvas>
+          {/* Post-processing Bloom Glow with transparent clear (only when high power) */}
+          {!isLowPowerOrMobile && (
+            <EffectComposer enableNormalPass={false} multisampling={0}>
+              <Bloom
+                intensity={1.2}
+                luminanceThreshold={0.2}
+                luminanceSmoothing={0.85}
+              />
+            </EffectComposer>
+          )}
+        </Canvas>
+      )}
     </div>
   );
 }
+
 
