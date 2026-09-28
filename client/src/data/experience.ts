@@ -14,16 +14,15 @@ export const experiences: Experience[] = [
     id: "pof",
     role: "AI/ML & DevOps Intern",
     company: "Pakistan Ordnance Factories (POF)",
-    duration: "July 2026 – Present",
-    badge: "Currently Active",
-    badgeType: "green",
+    duration: "July 2026 – September 2026",
     description: [
-      "Applying AI/ML and DevOps practices in a government defense sector environment",
-      "Working on intelligent systems and automation pipelines at one of Pakistan's largest manufacturing organizations",
-      "Gaining experience in enterprise-scale infrastructure and deployment workflows",
+      "Applied AI/ML and DevOps practices in a government defense sector environment",
+      "Worked on intelligent systems and automation pipelines at one of Pakistan's largest manufacturing organizations",
+      "Gained experience in enterprise-scale infrastructure and deployment workflows",
     ],
     order: 1,
   },
+
   {
     id: "developershub",
     role: "AI & ML Engineering Intern",

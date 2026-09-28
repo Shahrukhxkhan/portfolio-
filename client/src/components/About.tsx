@@ -76,9 +76,10 @@ export function About() {
 
             <ScrollReveal direction="up" delay={0.3}>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                I've completed 4 internships across AI/ML Engineering, Python development, and DevOps — including a current role at Pakistan Ordnance Factories (POF), earning a Best Performance Award at DevelopersHub Corporation. I'm passionate about technology that creates genuine social impact.
+                I've completed 4 internships across AI/ML Engineering, Python development, and DevOps — including at Pakistan Ordnance Factories (POF), and earning a Best Performance Award at DevelopersHub Corporation. I'm passionate about technology that creates genuine social impact.
               </p>
             </ScrollReveal>
+
           </div>
 
           {/* Stats Grid */}

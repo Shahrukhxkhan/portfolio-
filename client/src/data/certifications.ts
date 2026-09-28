@@ -14,9 +14,8 @@ export const certifications: Certification[] = [
     name: "AI/ML & DevOps Internship",
     issuer: "Pakistan Ordnance Factories (POF)",
     year: 2026,
-    badge: "Currently Active",
-    badgeType: "green",
   },
+
   {
     id: "generative-ai",
     name: "Generative AI Boot Camp",
