@@ -20,7 +20,7 @@ export default function Home() {
       {/* Neural Network particle background */}
       <NeuralNetwork />
 
-      <div className="relative text-foreground overflow-hidden">
+      <div className="relative text-foreground overflow-x-clip">
         {/* Navigation */}
         <Navbar />
 

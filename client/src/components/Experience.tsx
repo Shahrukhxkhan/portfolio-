@@ -1,8 +1,6 @@
 import ReactGA from 'react-ga4';
 import { useEffect, useRef } from 'react';
-import { motion } from "framer-motion";
-import { experiences } from "@/data/experience";
-import ScrollReveal from './ScrollReveal';
+import Timeline, { TimelineItem } from './ui/Timeline';
 
 export function Experience() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -24,100 +22,103 @@ export function Experience() {
     return () => observer.disconnect();
   }, []);
 
+  const items: TimelineItem[] = [
+    {
+      id: "codealpha",
+      order: 1,
+      row: "top",
+      label: "June 2025",
+      content:
+        "Python Programming Intern at CodeAlpha — earned a Letter of Recommendation for analytical skills and fast learning.",
+    },
+    {
+      id: "developershub",
+      order: 2,
+      row: "bottom",
+      label: "Jun – Jul 2025",
+      content:
+        "AI & ML Engineering Intern at DevelopersHub Corporation — six-week programme with exceptional performance.",
+      badge: "🏆 Best Performance Award",
+      badgeColor: "#F59E0B",
+    },
+    {
+      id: "cosmicode",
+      order: 3,
+      row: "top",
+      label: "Jul – Oct 2025",
+      content:
+        "Python Programming Intern at Cosmicode Technologies — four months of hands-on Python development.",
+    },
+    // TODO: confirm dates
+    {
+      id: "pmnh",
+      order: 4,
+      row: "bottom",
+      label: "Client Project",
+      content:
+        "Commissioned QR-based museum guide app with a live admin dashboard for the Pakistan Museum of Natural History.",
+    },
+    // TODO: confirm dates
+    {
+      id: "skillloom",
+      order: 5,
+      row: "top",
+      label: "Final Year Project",
+      content:
+        "SkillLoom — AI hiring platform for Pakistan's textile workforce, with face verification and demand forecasting.",
+    },
+    {
+      id: "pof",
+      order: 6,
+      row: "bottom",
+      label: "July 2026",
+      content:
+        "AI/ML & DevOps Intern at Pakistan Ordnance Factories — applying AI and DevOps practices in an enterprise environment.",
+    },
+    // TODO: confirm dates
+    {
+      id: "varolline",
+      order: 7,
+      row: "top",
+      label: "Present",
+      content:
+        "Co-founder & Technical Projects Manager at Varolline — an AI/tech agency building real-world intelligent systems.",
+    },
+  ];
+
   return (
-    <section
-      id="experience"
-      aria-labelledby="experience-heading"
-      className="relative pt-10 md:pt-12 pb-10 md:pb-12 overflow-hidden"
-    >
-      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <ScrollReveal direction="up">
-          <h2 id="experience-heading" className="section-heading">
-            Professional Experience
-          </h2>
-        </ScrollReveal>
+    <section id="experience" ref={sectionRef} className="relative w-full">
+      {/* 1) ~60vh lead-in */}
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-16">
+        <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#00D4FF] mb-3">
+          Career Timeline
+        </span>
+        <h2 className="font-heading font-extrabold text-[clamp(2rem,5vw,4rem)] text-foreground tracking-tight leading-[1.1] max-w-4xl">
+          Professional Experience
+        </h2>
+        <p className="mt-4 text-sm sm:text-base font-body text-muted-foreground max-w-lg leading-relaxed">
+          Keep scrolling — each milestone pins and reveals its journey across the timeline.
+        </p>
+        <span className="mt-6 animate-bounce text-[#00D4FF] text-xl font-mono">
+          &darr;
+        </span>
+      </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Center Line with Grow Animation */}
-          <motion.div
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
-            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[#2E75B6] to-[#00D4FF] origin-top"
-          />
+      {/* 2) Pinned Horizontal Timeline Component */}
+      <Timeline
+        items={items}
+        title="My Journey"
+        periodLabel="2025 — Present"
+      />
 
-          {/* Timeline Items */}
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <ScrollReveal
-                key={exp.id}
-                direction={index % 2 === 0 ? "right" : "left"}
-                delay={0.1}
-              >
-                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#00D4FF] border-4 border-background shadow-lg shadow-cyan-500/50 z-10 hidden md:flex items-center justify-center">
-                    <motion.div
-                      className="w-2 h-2 rounded-full bg-[#00D4FF]"
-                      whileHover={{ scale: 1.3 }}
-                      animate={{ boxShadow: ["0 0 20px rgba(0, 212, 255, 0.5)", "0 0 40px rgba(0, 212, 255, 0.8)", "0 0 20px rgba(0, 212, 255, 0.5)"] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <motion.article
-                    className={`p-6 rounded-lg bg-card border border-border hover:border-[#00D4FF] transition-all duration-300 space-y-4 ${
-                      index % 2 === 0
-                        ? "md:col-start-1 md:col-span-1"
-                        : "md:col-start-2 md:col-span-1"
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div>
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h3 className="text-xl font-bold text-foreground">
-                            {exp.role}
-                          </h3>
-                          <p className="text-[#00D4FF] font-medium">{exp.company}</p>
-                        </div>
-                        {exp.badge && (
-                          <span
-                            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ml-2 ${
-                              exp.badgeType === "green"
-                                ? "bg-[#22C55E] text-slate-950 font-bold"
-                                : "bg-gradient-to-r from-yellow-500 to-orange-500 text-white"
-                            }`}
-                          >
-                            {exp.badge}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-muted-foreground text-sm">{exp.duration}</p>
-                    </div>
-
-                    <ul className="space-y-2">
-                      {exp.description.map((bullet, i) => (
-                        <li
-                          key={i}
-                          className="text-muted-foreground text-sm flex gap-3"
-                        >
-                          <span className="text-[#00D4FF] flex-shrink-0">▸</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.article>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
+      {/* 3) ~30vh lead-out */}
+      <div className="min-h-[30vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <p className="text-sm sm:text-base font-body text-muted-foreground max-w-xl italic leading-relaxed">
+          "From first internship to defense-sector AI — building systems that matter."
+        </p>
       </div>
     </section>
   );
 }
+
+export default Experience;
