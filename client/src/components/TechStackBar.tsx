@@ -2,19 +2,20 @@ import { FC, CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import {
-  SiFlutter,
-  SiDart,
   SiPython,
   SiFastapi,
-  SiSupabase,
-  SiPostgresql,
-  SiMongodb,
-  SiDocker,
   SiReact,
-  SiJavascript,
-  SiCplusplus,
-  SiGit,
+  SiTypescript,
   SiScikitlearn,
+  SiPostgresql,
+  SiSupabase,
+  SiDocker,
+  SiGit,
+  SiFlutter,
+  SiDart,
+  SiJavascript,
+  SiMongodb,
+  SiCplusplus,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -24,19 +25,20 @@ interface TechItem {
 }
 
 const TECH_STACK: TechItem[] = [
-  { name: "Flutter", Icon: SiFlutter },
-  { name: "Dart", Icon: SiDart },
   { name: "Python", Icon: SiPython },
   { name: "FastAPI", Icon: SiFastapi },
-  { name: "Supabase", Icon: SiSupabase },
-  { name: "PostgreSQL", Icon: SiPostgresql },
-  { name: "MongoDB", Icon: SiMongodb },
-  { name: "Docker", Icon: SiDocker },
   { name: "React", Icon: SiReact },
-  { name: "JavaScript", Icon: SiJavascript },
-  { name: "C++", Icon: SiCplusplus },
-  { name: "Git", Icon: SiGit },
+  { name: "TypeScript", Icon: SiTypescript },
   { name: "scikit-learn", Icon: SiScikitlearn },
+  { name: "PostgreSQL", Icon: SiPostgresql },
+  { name: "Supabase", Icon: SiSupabase },
+  { name: "Docker", Icon: SiDocker },
+  { name: "Git", Icon: SiGit },
+  { name: "Flutter", Icon: SiFlutter },
+  { name: "Dart", Icon: SiDart },
+  { name: "JavaScript", Icon: SiJavascript },
+  { name: "MongoDB", Icon: SiMongodb },
+  { name: "C++", Icon: SiCplusplus },
 ];
 
 export interface TechStackBarProps {
