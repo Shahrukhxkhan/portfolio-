@@ -2,6 +2,7 @@ import SEO from "@/components/SEO";
 import { Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { TechStackBar } from "@/components/TechStackBar";
 import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
@@ -28,6 +29,9 @@ export default function Home() {
         <main id="main-content" className="relative z-10">
           {/* Hero Section */}
           <Hero />
+
+          {/* Tech Stack Bar */}
+          <TechStackBar />
 
           {/* About Section */}
           <About />
