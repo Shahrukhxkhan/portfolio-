@@ -5,15 +5,15 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Languages",
-    skills: ["Python", "JavaScript", "C++", "SQL", "Assembly"],
+    category: "MERN Stack",
+    skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
   },
   {
     category: "Frameworks & Tools",
     skills: [
       "FastAPI",
       "Flutter",
-      "React.js",
+      "Tailwind CSS",
       "Docker",
       "Git",
       "Supabase",
