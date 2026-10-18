@@ -1,7 +1,7 @@
 import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
-import { Github, Linkedin, ArrowDown } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { HeroGeometry } from "./three/HeroGeometry";
 import { Suspense, lazy } from "react";
 import TypewriterText, { BlinkingCursor } from './TypewriterText';
@@ -171,17 +171,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-muted-foreground text-sm">Scroll to explore</span>
-            <ArrowDown size={20} className="text-[#00D4FF]" />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
