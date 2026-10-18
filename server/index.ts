@@ -18,6 +18,18 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
+  // API Routes
+  app.get("/api/github-contributions", async (req, res) => {
+    try {
+      const username = (req.query.username as string) || "Shahrukhxkhan";
+      const { fetchGitHubContributions } = await import("./github.js");
+      const data = await fetchGitHubContributions(username);
+      res.json(data);
+    } catch (err: any) {
+      res.status(500).json({ error: "Failed to fetch GitHub contributions", message: err.message });
+    }
+  });
+
   // Handle client-side routing - serve index.html for all routes
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
