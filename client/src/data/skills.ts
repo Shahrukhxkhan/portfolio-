@@ -28,19 +28,6 @@ export const skillCategories: SkillCategory[] = [
       "Generative AI",
     ],
   },
-  {
-    category: "Databases",
-    skills: ["PostgreSQL", "MongoDB", "SQL Server"],
-  },
-  {
-    category: "Specializations",
-    skills: [
-      "REST APIs",
-      "Backend Architecture",
-      "Mobile Dev",
-      "AI Integration",
-    ],
-  },
 ];
 
 export interface SkillProficiency {
