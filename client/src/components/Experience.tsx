@@ -111,8 +111,8 @@ export function Experience() {
         periodLabel="2025 — Present"
       />
 
-      {/* 3) ~30vh lead-out */}
-      <div className="min-h-[30vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 text-center">
+      {/* 3) Lead-out Quote */}
+      <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-4 pb-6 text-center">
         <p className="text-sm sm:text-base font-body text-muted-foreground max-w-xl italic leading-relaxed">
           "From first internship to defense-sector AI — building systems that matter."
         </p>
