@@ -221,31 +221,5 @@ export const projects: Project[] = [
       "Custom alarm timers with audio triggers",
     ],
   },
-  {
-    id: "mcq-game",
-    title: "MCQ Game",
-    description: "Interactive multiple-choice question game with scoring system.",
-    longDescription: "Python-driven interactive quiz game featuring timed questions, difficulty progression, streak bonuses, and high score leaderboards.",
-    badges: ["Python"],
-    techStack: ["Python", "CLI", "Game Logic"],
-    github: "https://github.com/Shahrukhxkhan",
-    features: [
-      "Dynamic Question Loader from JSON/CSV datasets",
-      "Score & Streak tracking logic",
-    ],
-  },
-  {
-    id: "calculator",
-    title: "Calculator",
-    description: "Advanced calculator with support for complex mathematical operations.",
-    longDescription: "Python utility for evaluating algebraic expressions, trigonometric functions, memory storage, and error handling for invalid operations.",
-    badges: ["Python"],
-    techStack: ["Python"],
-    github: "https://github.com/Shahrukhxkhan",
-    features: [
-      "Mathematical expression parser",
-      "Memory store (MS, MR, MC) support",
-    ],
-  },
 ];
 
