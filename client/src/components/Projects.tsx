@@ -6,7 +6,6 @@ import { Github, Info, Layers, Zap, Folder } from "lucide-react";
 import Tilt from "react-parallax-tilt";
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal';
 import { ProjectModal } from "./ProjectModal";
-import { GitHubContributions } from "./GitHubContributions";
 
 const getFeaturedLabel = (id: string, title: string) => {
   if (id === 'skillloom') return 'SkillLoom';
@@ -364,9 +363,6 @@ export function Projects() {
             </StaggerContainer>
           </div>
         )}
-
-        {/* GitHub Contribution Activity & Telemetry */}
-        <GitHubContributions />
       </div>
 
       {/* Interactive Project Details Modal */}

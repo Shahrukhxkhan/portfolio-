@@ -8,6 +8,7 @@ import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Experience } from "@/components/Experience";
 import { Certifications } from "@/components/Certifications";
+import { GithubActivity } from "@/components/GithubActivity";
 import { Blog } from "@/components/Blog";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -47,6 +48,9 @@ export default function Home() {
 
           {/* Certifications Section */}
           <Certifications />
+
+          {/* GitHub Activity Section */}
+          <GithubActivity />
 
           {/* Blog & Engineering Insights */}
           <Blog />
