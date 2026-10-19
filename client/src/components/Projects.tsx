@@ -33,21 +33,55 @@ export function Projects() {
     if (activeCategory === "All") return true;
     if (activeCategory === "AI / ML") {
       return (
-        project.badges.some((b) => b.includes("AI") || b.includes("LLM")) ||
+        project.badges.some((b) =>
+          b.includes("AI") ||
+          b.includes("LLM") ||
+          b.includes("RAG") ||
+          b.includes("Agent") ||
+          b.includes("Vision") ||
+          b.includes("FinTech")
+        ) ||
         project.techStack.some((t) =>
-          ["FastAPI", "InsightFace", "Gemini 2.5 Flash API", "Python"].includes(t)
+          [
+            "FastAPI",
+            "InsightFace",
+            "Gemini 2.5 Flash API",
+            "Python",
+            "CrewAI",
+            "Qdrant",
+            "FastEmbed",
+          ].includes(t)
         )
       );
     }
     if (activeCategory === "Full-Stack") {
-      return project.badges.includes("Full-Stack") || project.techStack.includes("React") || project.techStack.includes("Node.js");
+      return (
+        project.badges.some((b) => b.includes("Full-Stack") || b.includes("CRM")) ||
+        project.techStack.some((t) =>
+          [
+            "React",
+            "React.js",
+            "React 19",
+            "Next.js",
+            "Next.js 15",
+            "Node.js",
+            "Express",
+            "tRPC",
+          ].includes(t)
+        )
+      );
     }
     if (activeCategory === "Mobile & Utilities") {
-      return (
-        project.badges.includes("Mobile") ||
-        project.badges.includes("C++") ||
-        project.badges.includes("SQL") ||
-        project.badges.includes("Python")
+      return project.badges.some((b) =>
+        [
+          "Mobile",
+          "Utilities",
+          "Archive",
+          "Showcase",
+          "Automotive",
+          "Productivity",
+          "Enterprise",
+        ].includes(b)
       );
     }
     return true;
