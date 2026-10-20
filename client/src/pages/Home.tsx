@@ -40,8 +40,18 @@ export default function Home() {
           {/* Skills Section */}
           <Skills />
 
+          {/* Section Divider */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-hidden="true">
+            <div className="border-t border-border" />
+          </div>
+
           {/* Projects Section */}
           <Projects />
+
+          {/* Section Divider */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-hidden="true">
+            <div className="border-t border-border" />
+          </div>
 
           {/* Experience Section */}
           <Experience />
