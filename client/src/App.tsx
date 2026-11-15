@@ -33,20 +33,16 @@ function App() {
   }, []);
 
   return (
-    <>
-      <SEO />
-      <Preloader onComplete={() => setPreloaderDone(true)} />
-      {preloaderDone && (
-        <ErrorBoundary>
-          <ThemeProvider defaultTheme="dark" switchable>
-            <TooltipProvider>
-              <Toaster />
-              <Router />
-            </TooltipProvider>
-          </ThemeProvider>
-        </ErrorBoundary>
-      )}
-    </>
+    <ErrorBoundary>
+      <ThemeProvider defaultTheme="dark" switchable>
+        <TooltipProvider>
+          <Toaster />
+          <SEO />
+          {!preloaderDone && <Preloader onComplete={() => setPreloaderDone(true)} />}
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -31,7 +31,8 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 9999
+            zIndex: 9999,
+            pointerEvents: isVisible ? 'auto' : 'none'
           }}
         >
           {/* Animated MSK monogram */}
