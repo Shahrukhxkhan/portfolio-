@@ -96,7 +96,7 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
   return (
     <section
       aria-label="Technologies I work with"
-      className="tech-strip-root relative w-full h-[80px] flex items-center z-10"
+      className="tech-strip-root relative w-full h-[96px] md:h-[104px] flex items-center z-10"
       style={themeStyles}
     >
       <style>{`
@@ -114,7 +114,7 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
           top: 0;
           left: 0;
           right: 0;
-          height: 6px;
+          height: 8px;
           background: repeating-linear-gradient(
             to right,
             var(--tick-color) 0px,
@@ -131,7 +131,7 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
           bottom: 0;
           left: 0;
           right: 0;
-          height: 6px;
+          height: 8px;
           background: repeating-linear-gradient(
             to right,
             var(--tick-color) 0px,
@@ -154,11 +154,11 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
         .tech-stack-item::after {
           content: attr(data-label);
           position: absolute;
-          top: calc(100% + 10px);
+          top: calc(100% + 12px);
           left: 50%;
           transform: translateX(-50%) translateY(-2px);
           font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
-          font-size: 11px;
+          font-size: 12px;
           line-height: 1;
           font-weight: 500;
           color: var(--label-color);
@@ -233,9 +233,9 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
       {/* Decorative blueprint ticks along top and bottom hairlines */}
       <div className="tech-strip-ticks absolute inset-0 pointer-events-none" aria-hidden="true" />
 
-      {/* Desktop view (>= 768px): Staggered entrance, evenly spaced 1100px row */}
+      {/* Desktop view (>= 768px): Staggered entrance, evenly spaced row */}
       <motion.div
-        className="hidden md:flex max-w-[1100px] mx-auto w-full px-4 sm:px-6 lg:px-8 justify-between items-center h-full relative z-10"
+        className="hidden md:flex max-w-[1240px] mx-auto w-full px-6 lg:px-8 justify-between items-center h-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -250,7 +250,7 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
               variants={itemVariants}
               className="tech-stack-item"
             >
-              <Icon className="tech-stack-icon" style={{ width: 28, height: 28 }} aria-hidden="true" />
+              <Icon className="tech-stack-icon" style={{ width: 36, height: 36 }} aria-hidden="true" />
               <span className="sr-only">{name}</span>
             </motion.li>
           ))}
@@ -268,7 +268,7 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
                 tabIndex={0}
                 className="tech-stack-item"
               >
-                <Icon className="tech-stack-icon" style={{ width: 24, height: 24 }} aria-hidden="true" />
+                <Icon className="tech-stack-icon" style={{ width: 30, height: 30 }} aria-hidden="true" />
                 <span className="sr-only">{name}</span>
               </li>
             ))}
@@ -282,7 +282,7 @@ export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
                 tabIndex={-1}
                 className="tech-stack-item"
               >
-                <Icon className="tech-stack-icon" style={{ width: 24, height: 24 }} aria-hidden="true" />
+                <Icon className="tech-stack-icon" style={{ width: 30, height: 30 }} aria-hidden="true" />
                 <span className="sr-only">{name}</span>
               </li>
             ))}
