@@ -419,11 +419,6 @@ export default function Timeline({
             MSK
           </h3>
         </div>
-        <div className="relative z-10">
-          <p className="font-mono text-[1vw] max-[600px]:text-[3vw] text-[#8892A4]">
-            4 internships · 2025 — Present
-          </p>
-        </div>
       </div>
     );
   };
