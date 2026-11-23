@@ -2,11 +2,13 @@ import ReactGA from 'react-ga4';
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { Github, Linkedin } from "lucide-react";
-import { HeroGeometry } from "./three/HeroGeometry";
 import { Suspense, lazy } from "react";
 import TypewriterText, { BlinkingCursor } from './TypewriterText';
 
 const ContactCanvas = lazy(() => import('./three/ContactCanvas'));
+const HeroGeometry = lazy(() =>
+  import("./three/HeroGeometry").then((m) => ({ default: m.HeroGeometry }))
+);
 
 export function Hero() {
   return (
