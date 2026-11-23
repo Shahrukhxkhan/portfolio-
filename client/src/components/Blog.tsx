@@ -1,12 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Clock, Tag, ArrowRight, X, Sparkles } from "lucide-react";
 import { BLOG_POSTS, type BlogPost } from "@/data/blogPosts";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "./ScrollReveal";
 
+function renderFormattedText(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-foreground">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return (
+        <code key={i} className="px-1.5 py-0.5 rounded bg-muted/70 font-mono text-xs text-cyan-300">
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    return part;
+  });
+}
+
 export function Blog() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [filterCategory, setFilterCategory] = useState<string>("All");
+
+  useEffect(() => {
+    if (!selectedPost) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedPost(null);
+      }
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPost]);
 
   const categories = ["All", "AI/ML", "System Architecture", "Engineering"];
 
@@ -40,11 +76,10 @@ export function Blog() {
             <button
               key={category}
               onClick={() => setFilterCategory(category)}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 border ${
-                filterCategory === category
+              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 border ${filterCategory === category
                   ? "bg-[#2E75B6] text-white border-[#00D4FF] shadow-[0_0_15px_rgba(0,212,255,0.3)]"
                   : "bg-card/60 text-muted-foreground border-border hover:text-foreground hover:border-[#00D4FF]/40"
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -152,10 +187,14 @@ export function Blog() {
                   const trimmed = block.trim();
                   if (!trimmed) return null;
 
+                  if (trimmed === "---") {
+                    return <hr key={idx} className="my-6 border-border" />;
+                  }
+
                   if (trimmed.startsWith("### ")) {
                     return (
                       <h4 key={idx} className="text-lg font-bold text-cyan-300 mt-6 mb-2">
-                        {trimmed.replace("### ", "")}
+                        {renderFormattedText(trimmed.replace("### ", ""))}
                       </h4>
                     );
                   }
@@ -177,7 +216,8 @@ export function Blog() {
                       <div key={idx} className="pl-4 border-l border-border/60 my-2 text-muted-foreground space-y-2">
                         {trimmed.split("\n").map((line, lIdx) => (
                           <p key={lIdx} className="text-sm">
-                            {line.replace(/^(\*|\d+\.)\s*/, "• ")}
+                            <span className="text-cyan-400 font-bold mr-1">•</span>
+                            {renderFormattedText(line.replace(/^(\*|\d+\.)\s*/, ""))}
                           </p>
                         ))}
                       </div>
@@ -185,8 +225,8 @@ export function Blog() {
                   }
 
                   return (
-                    <p key={idx} className="text-muted-foreground text-sm sm:text-base">
-                      {trimmed}
+                    <p key={idx} className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      {renderFormattedText(trimmed)}
                     </p>
                   );
                 })}

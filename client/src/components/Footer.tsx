@@ -58,6 +58,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#blog" aria-label="Read Technical Blog Notes" className="hover:text-[#00D4FF] transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
                 <a href="#contact" aria-label="Get in touch with Muhammad Shahrukh Khan" className="hover:text-[#00D4FF] transition-colors">
                   Contact
                 </a>

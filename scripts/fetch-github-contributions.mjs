@@ -11,7 +11,6 @@ const url = `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
 
 const targetPaths = [
   path.resolve(rootDir, "client/src/data/github-contributions.json"),
-  path.resolve(rootDir, "src/data/github-contributions.json"),
 ];
 
 async function main() {

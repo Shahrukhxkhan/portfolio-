@@ -384,9 +384,22 @@ export function Projects() {
                             <Info size={14} /> View Details
                           </span>
                           {project.github && (
-                            <span className="text-muted-foreground hover:text-foreground flex items-center gap-1">
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                ReactGA.event({
+                                  category: 'Projects',
+                                  action: 'GitHub Click',
+                                  label: project.title,
+                                });
+                              }}
+                              className="text-muted-foreground hover:text-[#00D4FF] flex items-center gap-1 transition-colors z-20"
+                            >
                               <Github size={14} /> GitHub
-                            </span>
+                            </a>
                           )}
                         </div>
                       </div>

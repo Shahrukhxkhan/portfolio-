@@ -1,6 +1,7 @@
 import { FC, CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
 import {
   SiPython,
   SiFastapi,
@@ -45,9 +46,11 @@ export interface TechStackBarProps {
   variant?: "dark" | "light";
 }
 
-export const TechStackBar: FC<TechStackBarProps> = ({ variant = "dark" }) => {
+export const TechStackBar: FC<TechStackBarProps> = ({ variant }) => {
   const shouldReduceMotion = useReducedMotion();
-  const isLight = variant === "light";
+  const themeCtx = useTheme();
+  const effectiveVariant = variant || (themeCtx?.theme === "light" ? "light" : "dark");
+  const isLight = effectiveVariant === "light";
 
   const themeStyles: CSSProperties & Record<string, string> = isLight
     ? {
