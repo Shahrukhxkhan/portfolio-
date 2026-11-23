@@ -430,7 +430,7 @@ export default function Timeline({
       className="h-[200vw] max-[600px]:h-[400vh] w-full relative"
       style={sectionStyle}
     >
-      <div className="h-screen w-full sticky top-[0%] pt-[2vw] overflow-hidden max-[600px]:top-[2%] max-[600px]:pt-[5vw]">
+      <div className="h-screen w-full sticky top-[0%] pt-[10%] overflow-hidden max-[600px]:top-[5%]">
         <div
           ref={wholeSliderRef}
           className="mr-[2vw] flex h-[30vw] w-[240vw] items-center gap-[5vw] px-[5vw] max-[600px]:h-[80vh] max-[600px]:w-[800vw] max-[600px]:px-[7vw]"

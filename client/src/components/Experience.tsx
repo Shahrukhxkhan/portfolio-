@@ -88,18 +88,18 @@ export function Experience() {
 
   return (
     <section id="experience" ref={sectionRef} className="relative w-full">
-      {/* 1) Lead-in */}
-      <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-12 pb-2">
+      {/* 1) ~60vh lead-in */}
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-16">
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#00D4FF] mb-3">
           Career Timeline
         </span>
         <h2 className="font-heading font-extrabold text-[clamp(2rem,5vw,4rem)] text-foreground tracking-tight leading-[1.1] max-w-4xl">
           Professional Experience
         </h2>
-        <p className="mt-3 text-sm sm:text-base font-body text-muted-foreground max-w-lg leading-relaxed">
+        <p className="mt-4 text-sm sm:text-base font-body text-muted-foreground max-w-lg leading-relaxed">
           Keep scrolling — each milestone pins and reveals its journey across the timeline.
         </p>
-        <span className="mt-3 animate-bounce text-[#00D4FF] text-xl font-mono">
+        <span className="mt-6 animate-bounce text-[#00D4FF] text-xl font-mono">
           &darr;
         </span>
       </div>
