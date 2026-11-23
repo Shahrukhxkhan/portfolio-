@@ -8,7 +8,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Preloader from './components/Preloader';
-import SEO from './components/SEO';
+import SEO from '@/components/SEO';
 
 function Router() {
   return (
